@@ -129,10 +129,15 @@
     .nav-links a:hover { color: var(--green); }
     .availability { display: flex; align-items: center; gap: .55rem; }
     .availability::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(165,255,102,.1); }
+    .language-switcher { display: flex; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 99px; background: rgba(255,255,255,.04); }
+    .lang-btn { padding: .34rem .55rem; border: 0; border-radius: 99px; color: var(--muted); background: transparent; font: 600 .66rem "Inter"; transition: color .25s, background .25s, box-shadow .25s; }
+    .lang-btn.active { color: white; background: var(--gradient); box-shadow: 0 3px 14px rgba(139,92,246,.35); }
+    body.language-fade main, body.language-fade footer { opacity: .35; }
+    main, footer { transition: opacity .18s ease; }
 
     /* Hero */
     .hero { min-height: 100svh; display: grid; place-items: center; padding: 7rem 0 3rem; overflow: hidden; isolation: isolate; }
-    .hero-orb { position: absolute; border-radius: 50%; filter: blur(6px); opacity: .95; animation: drift 10s ease-in-out infinite alternate; }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(6px); opacity: .95; animation: blobPulse 8s ease-in-out infinite; }
     .orb-1 { width: min(70vw, 850px); height: min(70vw, 850px); top: -12%; left: -22%; background: radial-gradient(circle, rgba(139,92,246,.52), rgba(139,92,246,.13) 42%, transparent 70%); }
     .orb-2 { width: min(76vw, 940px); height: min(76vw, 940px); right: -24%; bottom: -24%; background: radial-gradient(circle, rgba(59,130,246,.45), rgba(59,130,246,.1) 45%, transparent 70%); animation-delay: -3s; }
     .particle-field { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -153,32 +158,22 @@
       font-size: clamp(5rem, 15vw, 12rem);
       letter-spacing: -.08em; white-space: nowrap; line-height: .74;
     }
-    .hero-word-back { top: 9%; z-index: 1; color: #f7f6fa; }
+    .hero-word-back { top: 9%; z-index: 1; color: #f7f6fa; -webkit-text-stroke: 1px rgba(139,92,246,.25); text-shadow: 0 15px 45px rgba(0,0,0,.25); }
     .hero-word-front {
-      bottom: 8%; z-index: 3;
+      bottom: 8%; z-index: 5;
       color: transparent;
       -webkit-text-stroke: 1.5px rgba(255,255,255,.85);
       text-shadow: 0 10px 35px rgba(0,0,0,.42);
     }
     .portrait-wrap {
-      position: absolute; z-index: 2; bottom: 0; left: 50%; transform: translateX(-50%);
+      position: absolute; z-index: 3; bottom: 0; left: 50%; transform: translateX(-50%);
       width: clamp(290px, 46vw, 580px); height: 100%;
       overflow: hidden;
       background: transparent;
       filter: drop-shadow(0 35px 55px rgba(0,0,0,.5)) drop-shadow(0 0 45px rgba(139,92,246,.2));
     }
     .portrait-wrap::after { content: ""; position: absolute; z-index: 3; inset: auto 0 0; height: 18%; background: linear-gradient(180deg, transparent, rgba(10,10,12,.62)); pointer-events: none; }
-    .portrait-img { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .portrait-img.is-missing { display: none; }
-    .portrait-placeholder { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(145deg, #423366, #171722 70%); }
-    .portrait-placeholder::before {
-      content: ""; position: absolute; top: 13%; left: 50%; width: 35%; aspect-ratio: 1; border-radius: 50%;
-      transform: translateX(-50%); background: #09090d; box-shadow: 0 0 45px rgba(139,92,246,.3);
-    }
-    .portrait-placeholder::after {
-      content: ""; position: absolute; bottom: -12%; left: 50%; width: 82%; height: 69%; border-radius: 50% 50% 8% 8%;
-      transform: translateX(-50%); background: #09090d;
-    }
+    .portrait-img { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-top: 1.7rem; text-align: left; }
     .hero-intro { max-width: 390px; margin: 0; color: var(--muted); font-size: clamp(.9rem, 1.4vw, 1.05rem); }
     .hero-subtitle { margin: 0 0 .7rem; font: 600 clamp(1.35rem, 3vw, 2.4rem) "Space Grotesk"; letter-spacing: -.04em; }
@@ -238,6 +233,10 @@
     .skill-track { height: 4px; overflow: hidden; border-radius: 5px; background: rgba(255,255,255,.09); }
     .skill-fill { width: 0; height: 100%; border-radius: inherit; background: var(--gradient); box-shadow: 0 0 14px rgba(139,92,246,.55); transition: width 1.25s var(--ease); }
     .skill-fill.animate { width: var(--level); }
+    .skill-item:nth-child(2) .skill-fill { transition-delay: .08s; } .skill-item:nth-child(3) .skill-fill { transition-delay: .16s; }
+    .skill-item:nth-child(4) .skill-fill { transition-delay: .24s; } .skill-item:nth-child(5) .skill-fill { transition-delay: .32s; }
+    .skill-item:nth-child(6) .skill-fill { transition-delay: .4s; } .skill-item:nth-child(7) .skill-fill { transition-delay: .48s; }
+    .skill-item:nth-child(8) .skill-fill { transition-delay: .56s; } .skill-item:nth-child(9) .skill-fill { transition-delay: .64s; }
 
     /* Projects */
     .projects-header { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
@@ -249,9 +248,12 @@
       border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
       transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
     }
+    .project-card { --accent-a: var(--purple); --accent-b: var(--blue); }
+    .project-card:nth-child(2) { --accent-a: #06b6d4; --accent-b: #3b82f6; }
+    .project-card:nth-child(3) { --accent-a: #a5ff66; --accent-b: #10b981; }
     .project-card::before {
       content: ""; position: absolute; z-index: 2; inset: -1px; padding: 1px; border-radius: inherit;
-      background: linear-gradient(125deg, var(--purple), var(--blue), var(--green));
+      background: linear-gradient(125deg, var(--accent-a), var(--accent-b));
       opacity: 0; pointer-events: none; transition: opacity .3s var(--ease);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor; mask-composite: exclude;
@@ -299,7 +301,7 @@
     .range-minmax { display: flex; justify-content: space-between; margin-top: .6rem; color: #777583; font-size: .68rem; }
     .estimate { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
     .estimate-label { display: block; margin-bottom: .6rem; color: var(--muted); font-size: .85rem; }
-    .estimate-value { font: 700 clamp(2.2rem, 5vw, 4rem)/1 "Space Grotesk"; letter-spacing: -.06em; }
+    .estimate-value { font: 700 clamp(2.2rem, 5vw, 4rem)/1 "Space Grotesk"; letter-spacing: -.06em; text-shadow: 0 0 28px rgba(139,92,246,.5); }
 
     /* Contact */
     .contact-intro { max-width: 900px; margin-bottom: 4rem; }
@@ -319,7 +321,7 @@
       transition: color .2s, border-color .2s, background .2s, transform .2s;
     }
     .toggle-tag:hover { color: white; border-color: var(--purple); transform: translateY(-2px); }
-    .toggle-tag.active { color: var(--bg); border-color: var(--green); background: var(--green); }
+    .toggle-tag.active { color: white; border-color: transparent; background: var(--gradient); box-shadow: 0 7px 22px rgba(139,92,246,.3); }
     .contact-actions { display: flex; align-items: center; gap: 1rem; margin-top: 3.5rem; }
     .submit-btn { min-width: 180px; border: 0; }
     .form-status { margin: 0; color: var(--green); font-size: .85rem; }
@@ -338,12 +340,23 @@
     .project-modal-head { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.2rem; border-bottom: 1px solid var(--line); }
     .project-modal-title { margin: 0; font-size: 1rem; }
     .modal-close { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: white; background: transparent; }
-    .iframe-wrap { height: min(680px, 75vh); }
+    .browser-bar { display: flex; align-items: center; gap: .7rem; height: 42px; padding: 0 .9rem; border-bottom: 1px solid var(--line); background: #19191f; }
+    .browser-dots { display: flex; gap: 5px; } .browser-dots i { width: 8px; height: 8px; border-radius: 50%; background: #666; }
+    .browser-url { flex: 1; overflow: hidden; padding: .3rem .7rem; border-radius: 6px; color: #aaa8b3; background: #0c0c10; font: .7rem "Inter"; text-overflow: ellipsis; white-space: nowrap; }
+    .iframe-wrap { height: min(638px, calc(75vh - 42px)); }
     .iframe-wrap iframe { width: 100%; height: 100%; border: 0; background: white; }
     .project-placeholder { display: grid; place-items: center; min-height: 480px; padding: 2rem; text-align: center; background: radial-gradient(circle, rgba(139,92,246,.18), transparent 45%); }
     .project-placeholder-inner { max-width: 520px; }
     .project-placeholder h3 { font-size: clamp(2rem, 6vw, 4rem); letter-spacing: -.06em; }
     .project-placeholder p { color: var(--muted); }
+    .map-demo { position: relative; min-height: 540px; overflow: hidden; background-color: #d9e4d4; background-image: linear-gradient(rgba(52,88,78,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(52,88,78,.13) 1px, transparent 1px), repeating-linear-gradient(35deg, transparent 0 70px, rgba(255,255,255,.32) 72px 75px); background-size: 32px 32px,32px 32px,160px 160px; }
+    .map-controls { position: relative; z-index: 3; display: flex; flex-wrap: wrap; gap: .55rem; padding: 1rem; }
+    .map-search { flex: 1 1 240px; padding: .75rem 1rem; border: 0; border-radius: 10px; color: #222; background: white; box-shadow: 0 8px 25px rgba(30,60,50,.16); }
+    .region-tag { padding: .6rem .8rem; border: 0; border-radius: 99px; color: #334; background: rgba(255,255,255,.88); }
+    .region-tag.active { color: white; background: #6d4ce8; }
+    .map-pin { position: absolute; z-index: 2; width: 24px; height: 24px; border: 5px solid white; border-radius: 50% 50% 50% 0; background: #8b5cf6; box-shadow: 0 5px 14px rgba(0,0,0,.3); transform: rotate(-45deg); animation: pinBounce 2.4s ease-in-out infinite; }
+    .map-pin.pin-a { left: 25%; top: 35%; } .map-pin.pin-b { left: 58%; top: 48%; animation-delay: -.8s; background: #3b82f6; } .map-pin.pin-c { left: 76%; top: 27%; animation-delay: -1.5s; background: #10b981; }
+    .map-note { position: absolute; z-index: 3; right: 1rem; bottom: 1rem; max-width: 390px; margin: 0; padding: .8rem 1rem; border-radius: 10px; color: #262632 !important; background: rgba(255,255,255,.94); box-shadow: 0 8px 25px rgba(30,60,50,.16); font-weight: 600; }
     .win95-window { width: min(720px, 95vw); padding: 3px; border: 3px outset #efefef; color: #000; background: #c0c0c0; box-shadow: 10px 10px 0 rgba(0,0,0,.45); transform: scale(.96); transition: transform .2s; cursor: default; }
     .modal-backdrop.open .win95-window { transform: scale(1); }
     .win95-titlebar { display: flex; align-items: center; height: 30px; padding: 2px 3px 2px 7px; color: white; background: linear-gradient(90deg,#000080,#1084d0); font: 700 14px Arial,sans-serif; }
@@ -364,13 +377,15 @@
     .footer-copy p { margin: .2rem 0; }
     .footer-note { color: var(--muted); font-size: .8rem; }
     .footer-links { display: flex; gap: 1.2rem; color: #d5d3dc; font-size: .82rem; }
-    .footer-links a { transition: color .2s; }
-    .footer-links a:hover { color: var(--green); }
+    .footer-links a { transition: color .2s, text-shadow .2s; }
+    .footer-links a:hover { color: var(--green); text-shadow: 0 0 15px rgba(165,255,102,.75); }
     .back-top { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; background: transparent; transition: transform .25s, border-color .25s; }
     .back-top:hover { transform: translateY(-5px); border-color: var(--green); }
     .back-top svg { width: 18px; }
 
     @keyframes drift { to { transform: translate(40px, 35px) scale(1.08); } }
+    @keyframes blobPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes pinBounce { 0%,100% { transform: rotate(-45deg) translate(0,0); } 50% { transform: rotate(-45deg) translate(5px,-5px); } }
     @keyframes float { 0%,100% { transform: translateY(0); opacity: .4; } 50% { transform: translateY(-28px); opacity: 1; } }
     @keyframes inputPulse { 0%,100% { box-shadow: 0 9px 20px -13px rgba(139,92,246,.55); } 50% { box-shadow: 0 10px 30px -10px rgba(139,92,246,.95); } }
 
@@ -441,8 +456,9 @@
     <nav class="nav" aria-label="Primary navigation">
       <a class="logo" href="#home" aria-label="Anselmo Acquah, home">ANSELMO<span>.</span></a>
       <div class="nav-links">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
-        <a class="availability" href="mailto:anselmo.acquah54@gmail.com">Available for work</a>
+        <a href="#about" data-i18n="navAbout">About</a><a href="#skills" data-i18n="navSkills">Skills</a><a href="#projects" data-i18n="navProjects">Projects</a><a href="#contact" data-i18n="navContact">Contact</a>
+        <a class="availability" href="mailto:anselmo.acquah54@gmail.com" data-i18n="available">Available for work</a>
+        <div class="language-switcher" role="group" aria-label="Language"><button class="lang-btn" type="button" data-lang="it">IT</button><button class="lang-btn" type="button" data-lang="fr">FR</button><button class="lang-btn active" type="button" data-lang="eng">ENG</button></div>
       </div>
     </nav>
   </header>
@@ -452,24 +468,22 @@
       <div class="hero-orb orb-1"></div><div class="hero-orb orb-2"></div>
       <div class="particle-field" aria-hidden="true"></div>
       <div class="container hero-content">
-        <span class="location-badge">Based in Verona, Italy</span>
+        <span class="location-badge" data-i18n="location">Based in Verona, Italy</span>
         <div class="hero-stack" aria-label="Web Developer">
-          <h1 class="hero-word hero-word-back">DEVELOPER</h1>
+          <h1 class="hero-word hero-word-back" data-i18n="heroBack">DEVELOPER</h1>
           <div class="portrait-wrap">
-            <div class="portrait-placeholder" aria-hidden="true"></div>
-            <!-- The real portrait will replace the silhouette automatically when /portrait.jpg is available. -->
-            <img class="portrait-img" src="portrait.png" alt="Anselmo Acquah — Web Developer" onerror="this.classList.add('is-missing')">
+            <img class="portrait-img" src="portrait.png" alt="Anselmo Acquah — Web Developer">
           </div>
-          <div class="hero-word hero-word-front" aria-hidden="true">WEB</div>
+          <div class="hero-word hero-word-front" aria-hidden="true" data-i18n="heroFront">WEB</div>
         </div>
         <div class="hero-bottom">
           <div>
-            <p class="hero-subtitle gradient-text">IT Specialist</p>
-            <p class="hero-intro">I build reliable digital products, intelligent automations, and web experiences that make complex work feel effortless.</p>
+            <p class="hero-subtitle gradient-text" data-i18n="specialist">IT Specialist</p>
+            <p class="hero-intro" data-i18n="heroIntro">I build reliable digital products, intelligent automations, and web experiences that make complex work feel effortless.</p>
           </div>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#projects">View Projects <span>↘</span></a>
-            <a class="btn" href="#contact">Get in Touch <span>→</span></a>
+            <a class="btn btn-primary" href="#projects"><span data-i18n="viewProjects">View Projects</span> <span>↘</span></a>
+            <a class="btn" href="#contact"><span data-i18n="getInTouch">Get in Touch</span> <span>→</span></a>
           </div>
         </div>
       </div>
@@ -478,27 +492,27 @@
     <section id="about">
       <div class="container">
         <div class="about-lead">
-          <div><span class="eyebrow">What I do</span><h2 class="section-title">Ideas into <span class="gradient-text">impact.</span></h2></div>
-          <p class="about-copy">I’m Anselmo Acquah, a Web Developer &amp; IT Specialist combining full-stack engineering with practical automation. From WordPress platforms to AI-enhanced workflows, I focus on thoughtful systems that perform.</p>
+          <div><span class="eyebrow" data-i18n="whatIDo">What I do</span><h2 class="section-title" data-i18n-html="aboutTitle">Ideas into <span class="gradient-text">impact.</span></h2></div>
+          <p class="about-copy" data-i18n="aboutCopy">I’m Anselmo Acquah, a Web Developer &amp; IT Specialist combining full-stack engineering with practical automation. From WordPress platforms to AI-enhanced workflows, I focus on thoughtful systems that perform.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
             <div class="feature-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="19"/><path d="M12 18h24M17 12l7 24 7-24M12 29h24"/></svg></div>
-            <div class="feature-content"><h3>WordPress Expert</h3><p>Custom PHP themes, performant builds, and maintainable content systems tailored to real business needs.</p></div>
+            <div class="feature-content"><h3 data-i18n="wpExpert">WordPress Expert</h3><p>Custom PHP themes, performant builds, and maintainable content systems tailored to real business needs.</p></div>
           </article>
           <article class="feature-card">
             <div class="feature-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"><path d="m18 14-10 10 10 10M30 14l10 10-10 10M27 8l-6 32"/></svg></div>
-            <div class="feature-content"><h3>Full-Stack Dev</h3><p>Modern React interfaces, robust backends, and scalable data layers built as one cohesive product.</p></div>
+            <div class="feature-content"><h3 data-i18n="fullStack">Full-Stack Dev</h3><p>Modern React interfaces, robust backends, and scalable data layers built as one cohesive product.</p></div>
           </article>
           <article class="feature-card">
             <div class="feature-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"><path d="M11 14h18a7 7 0 0 1 7 7v0M37 14l-5-5m5 5-5 5M37 34H19a7 7 0 0 1-7-7v0M11 34l5-5m-5 5 5 5"/></svg></div>
-            <div class="feature-content"><h3>Automation</h3><p>Connected workflows with Make.com and Zapier that remove repetitive tasks and accelerate teams.</p></div>
+            <div class="feature-content"><h3 data-i18n="automation">Automation</h3><p>Connected workflows with Make.com and Zapier that remove repetitive tasks and accelerate teams.</p></div>
           </article>
           <article class="feature-card">
             <div class="feature-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"><path d="M24 5v7M24 36v7M5 24h7M36 24h7M10.5 10.5l5 5M32.5 32.5l5 5M37.5 10.5l-5 5M15.5 32.5l-5 5"/><circle cx="24" cy="24" r="9"/><path d="M20 24h8M24 20v8"/></svg></div>
-            <div class="feature-content"><h3>AI Integration</h3><p>Useful AI features embedded into products and operations to improve research, content, and decisions.</p></div>
+            <div class="feature-content"><h3 data-i18n="aiIntegration">AI Integration</h3><p>Useful AI features embedded into products and operations to improve research, content, and decisions.</p></div>
           </article>
-          <div class="grid-star" aria-hidden="true">✦</div>
+          <div class="grid-star" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 1.5c.7 6.7 3.8 9.8 10.5 10.5-6.7.7-9.8 3.8-10.5 10.5C11.3 15.8 8.2 12.7 1.5 12 8.2 11.3 11.3 8.2 12 1.5Z"/></svg></div>
         </div>
       </div>
     </section>
@@ -506,8 +520,8 @@
     <section class="skills" id="skills">
       <div class="container skills-layout">
         <div class="skills-sticky">
-          <span class="eyebrow">Technical toolkit</span>
-          <h2 class="section-title">Built with <span class="gradient-text">range.</span></h2>
+          <span class="eyebrow" data-i18n="toolkit">Technical toolkit</span>
+          <h2 class="section-title" data-i18n-html="skillsTitle">Built with <span class="gradient-text">range.</span></h2>
           <p>A practical, evolving stack for taking products from idea to production—without losing sight of clarity, performance, or the people using them.</p>
         </div>
         <div class="skill-list" aria-label="Technical skills">
@@ -527,7 +541,7 @@
     <section id="projects">
       <div class="container">
         <div class="projects-header">
-          <div><span class="eyebrow">Selected work</span><h2 class="section-title">Projects with <span class="gradient-text">purpose.</span></h2></div>
+          <div><span class="eyebrow" data-i18n="selectedWork">Selected work</span><h2 class="section-title" data-i18n-html="projectsTitle">Projects with <span class="gradient-text">purpose.</span></h2></div>
           <p class="projects-note">Click a project preview to explore the live build or open its project showcase.</p>
         </div>
         <div class="project-grid">
@@ -550,11 +564,11 @@
     <section id="calculator">
       <div class="container">
         <div class="calculator-panel">
-          <div class="calculator-copy"><span class="eyebrow">Plan an engagement</span><h2 class="section-title">Estimate the <span class="gradient-text">investment.</span></h2><p>Adjust the scope to get a quick annual estimate. Every real project starts with a conversation and receives a tailored proposal.</p></div>
+          <div class="calculator-copy"><span class="eyebrow" data-i18n="plan">Plan an engagement</span><h2 class="section-title" data-i18n-html="estimateTitle">Estimate the <span class="gradient-text">investment.</span></h2><p>Adjust the scope to get a quick annual estimate. Every real project starts with a conversation and receives a tailored proposal.</p></div>
           <div class="calculator-controls">
-            <div class="range-group"><label class="range-label" for="rate"><span>Hourly Rate</span><output id="rateOutput">€50/hr</output></label><input id="rate" type="range" min="20" max="150" value="50" aria-label="Hourly rate"><div class="range-minmax"><span>€20</span><span>€150</span></div></div>
-            <div class="range-group"><label class="range-label" for="hours"><span>Hours per Month</span><output id="hoursOutput">80 hrs</output></label><input id="hours" type="range" min="10" max="200" value="80" aria-label="Hours per month"><div class="range-minmax"><span>10 hrs</span><span>200 hrs</span></div></div>
-            <div class="estimate" aria-live="polite"><span class="estimate-label">Your estimated annual investment:</span><strong class="estimate-value" id="estimateValue">€48,000</strong></div>
+            <div class="range-group"><label class="range-label" for="rate"><span data-i18n="hourlyRate">Hourly Rate</span><output id="rateOutput">€50/hr</output></label><input id="rate" type="range" min="20" max="150" value="50" aria-label="Hourly rate"><div class="range-minmax"><span>€20</span><span>€150</span></div></div>
+            <div class="range-group"><label class="range-label" for="hours"><span data-i18n="hoursMonth">Hours per Month</span><output id="hoursOutput">80 hrs</output></label><input id="hours" type="range" min="10" max="200" value="80" aria-label="Hours per month"><div class="range-minmax"><span>10 hrs</span><span>200 hrs</span></div></div>
+            <div class="estimate" aria-live="polite"><span class="estimate-label" data-i18n="annual">Your estimated annual investment:</span><strong class="estimate-value" id="estimateValue">€48,000</strong></div>
           </div>
         </div>
       </div>
@@ -562,15 +576,15 @@
 
     <section id="contact">
       <div class="container">
-        <div class="contact-intro"><span class="eyebrow">Start a conversation</span><h2 class="section-title">Have something in <span class="gradient-text">mind?</span></h2></div>
+        <div class="contact-intro"><span class="eyebrow" data-i18n="startConversation">Start a conversation</span><h2 class="section-title" data-i18n-html="contactTitle">Have something in <span class="gradient-text">mind?</span></h2></div>
         <form id="contactForm">
-          <p class="contact-sentence">Hey, my name is <input class="inline-input" name="name" type="text" placeholder="your name" aria-label="Your name" required> and I am from <input class="inline-input" name="location" type="text" placeholder="your location" aria-label="Your location" required>. I would like to discuss <span class="toggle-tags" role="group" aria-label="Topic"><button class="toggle-tag active" type="button" aria-pressed="true">Collaboration</button><button class="toggle-tag" type="button" aria-pressed="false">Potential Project</button><button class="toggle-tag" type="button" aria-pressed="false">Freelance Work</button><button class="toggle-tag" type="button" aria-pressed="false">Just Saying Hi</button></span>. You can reach me at <input class="inline-input" name="email" type="email" placeholder="your@email.com" aria-label="Your email" required>.</p>
-          <div class="contact-actions"><button class="btn btn-primary submit-btn" type="submit">Send introduction <span>↗</span></button><p class="form-status" id="formStatus" aria-live="polite"></p></div>
+          <p class="contact-sentence"><span data-i18n="heyName">Hey, my name is</span> <input class="inline-input" name="name" type="text" placeholder="your name" data-i18n-placeholder="namePlaceholder" aria-label="Your name" required> <span data-i18n="from">and I am from</span> <input class="inline-input" name="location" type="text" placeholder="your location" data-i18n-placeholder="locationPlaceholder" aria-label="Your location" required>. <span data-i18n="discuss">I would like to discuss</span> <span class="toggle-tags" role="group" aria-label="Topic"><button class="toggle-tag active" type="button" aria-pressed="true" data-i18n="collaboration">Collaboration</button><button class="toggle-tag" type="button" aria-pressed="false" data-i18n="potential">Potential Project</button><button class="toggle-tag" type="button" aria-pressed="false" data-i18n="freelance">Freelance Work</button><button class="toggle-tag" type="button" aria-pressed="false" data-i18n="hi">Just Saying Hi</button></span>. <span data-i18n="reach">You can reach me at</span> <input class="inline-input" name="email" type="email" placeholder="your@email.com" aria-label="Your email" required>.</p>
+          <div class="contact-actions"><button class="btn btn-primary submit-btn" type="submit"><span data-i18n="sendIntro">Send introduction</span> <span>↗</span></button><p class="form-status" id="formStatus" aria-live="polite"></p></div>
         </form>
       </div>
     </section>
 
-    <div class="system-area"><button class="win95-btn" id="systemLogBtn" type="button">🖥 View System Log</button></div>
+    <div class="system-area"><button class="win95-btn" id="systemLogBtn" type="button">🖥 <span data-i18n="systemLog">View System Log</span></button></div>
   </main>
 
   <footer>
@@ -601,6 +615,37 @@
     (() => {
       "use strict";
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const translations = {
+        eng: {
+          navAbout:"About",navSkills:"Skills",navProjects:"Projects",navContact:"Contact",available:"Available for work",location:"Based in Verona, Italy",heroBack:"DEVELOPER",heroFront:"WEB",specialist:"IT Specialist",heroIntro:"I build reliable digital products, intelligent automations, and web experiences that make complex work feel effortless.",viewProjects:"View Projects",getInTouch:"Get in Touch",whatIDo:"WHAT I DO",aboutTitle:'Ideas into <span class="gradient-text">impact.</span>',aboutCopy:"I’m Anselmo Acquah, a Web Developer & IT Specialist combining full-stack engineering with practical automation. From WordPress platforms to AI-enhanced workflows, I focus on thoughtful systems that perform.",wpExpert:"WordPress Expert",fullStack:"Full-Stack Dev",automation:"Automation",aiIntegration:"AI Integration",toolkit:"TECHNICAL TOOLKIT",skillsTitle:'Built with <span class="gradient-text">range.</span>',selectedWork:"SELECTED WORK",projectsTitle:'Projects with <span class="gradient-text">purpose.</span>',plan:"PLAN AN ENGAGEMENT",estimateTitle:'Estimate the <span class="gradient-text">investment.</span>',hourlyRate:"Hourly Rate",hoursMonth:"Hours per Month",annual:"Your estimated annual investment:",startConversation:"START A CONVERSATION",contactTitle:'Have something in <span class="gradient-text">mind?</span>',heyName:"Hey, my name is",from:"and I am from",discuss:"I would like to discuss",reach:"You can reach me at",collaboration:"Collaboration",potential:"Potential Project",freelance:"Freelance Work",hi:"Just Saying Hi",sendIntro:"Send introduction",systemLog:"View System Log",namePlaceholder:"your name",locationPlaceholder:"your location",mapNote:"Live demo available on request — source code on GitHub"
+        },
+        it: {
+          navAbout:"Chi sono",navSkills:"Competenze",navProjects:"Progetti",navContact:"Contatti",available:"Disponibile per lavoro",location:"Con base a Verona, Italia",heroBack:"SVILUPPATORE",heroFront:"WEB",specialist:"Specialista IT",heroIntro:"Creo prodotti digitali affidabili, automazioni intelligenti ed esperienze web che rendono semplice il lavoro complesso.",viewProjects:"Vedi Progetti",getInTouch:"Contattami",whatIDo:"COSA FACCIO",aboutTitle:'Dalle idee all’<span class="gradient-text">impatto.</span>',aboutCopy:"Sono Anselmo Acquah, sviluppatore web e specialista IT che combina ingegneria full-stack con automazione pratica. Dalle piattaforme WordPress ai flussi di lavoro potenziati dall'AI, mi concentro su sistemi pensati che funzionano.",wpExpert:"Esperto WordPress",fullStack:"Sviluppatore Full-Stack",automation:"Automazione",aiIntegration:"Integrazione AI",toolkit:"COMPETENZE TECNICHE",skillsTitle:'Costruito con <span class="gradient-text">versatilità.</span>',selectedWork:"PROGETTI SELEZIONATI",projectsTitle:'Progetti con uno <span class="gradient-text">scopo.</span>',plan:"PIANIFICA UNA COLLABORAZIONE",estimateTitle:'Stima l’<span class="gradient-text">investimento.</span>',hourlyRate:"Tariffa Oraria",hoursMonth:"Ore al Mese",annual:"Il tuo investimento annuo stimato:",startConversation:"INIZIA UNA CONVERSAZIONE",contactTitle:'Hai qualcosa in <span class="gradient-text">mente?</span>',heyName:"Ciao, mi chiamo",from:"e vengo da",discuss:"vorrei discutere di",reach:"Puoi contattarmi a",collaboration:"Collaborazione",potential:"Progetto Potenziale",freelance:"Lavoro Freelance",hi:"Solo un Saluto",sendIntro:"Invia presentazione",systemLog:"Visualizza Log di Sistema",namePlaceholder:"il tuo nome",locationPlaceholder:"la tua città",mapNote:"Demo live disponibile su richiesta — codice sorgente su GitHub"
+        },
+        fr: {
+          navAbout:"À propos",navSkills:"Compétences",navProjects:"Projets",navContact:"Contact",available:"Disponible pour travail",location:"Basé à Vérone, Italie",heroBack:"DÉVELOPPEUR",heroFront:"WEB",specialist:"Spécialiste IT",heroIntro:"Je crée des produits numériques fiables, des automatisations intelligentes et des expériences web qui simplifient le travail complexe.",viewProjects:"Voir Projets",getInTouch:"Me Contacter",whatIDo:"CE QUE JE FAIS",aboutTitle:'Des idées à l’<span class="gradient-text">impact.</span>',aboutCopy:"Je suis Anselmo Acquah, développeur web et spécialiste IT alliant ingénierie full-stack et automatisation pratique. Des plateformes WordPress aux flux de travail augmentés par l'IA, je me concentre sur des systèmes réfléchis et performants.",wpExpert:"Expert WordPress",fullStack:"Développeur Full-Stack",automation:"Automatisation",aiIntegration:"Intégration IA",toolkit:"COMPÉTENCES TECHNIQUES",skillsTitle:'Construit avec <span class="gradient-text">polyvalence.</span>',selectedWork:"PROJETS SÉLECTIONNÉS",projectsTitle:'Des projets avec un <span class="gradient-text">but.</span>',plan:"PLANIFIER UNE COLLABORATION",estimateTitle:'Estimez l’<span class="gradient-text">investissement.</span>',hourlyRate:"Taux Horaire",hoursMonth:"Heures par Mois",annual:"Votre investissement annuel estimé :",startConversation:"LANCER UNE CONVERSATION",contactTitle:'Vous avez un projet en <span class="gradient-text">tête ?</span>',heyName:"Salut, je m’appelle",from:"et je viens de",discuss:"je voudrais discuter de",reach:"Vous pouvez me joindre à",collaboration:"Collaboration",potential:"Projet Potentiel",freelance:"Travail Freelance",hi:"Dire Bonjour",sendIntro:"Envoyer présentation",systemLog:"Voir le Journal Système",namePlaceholder:"votre nom",locationPlaceholder:"votre ville",mapNote:"Démo en direct disponible sur demande — code source sur GitHub"
+        }
+      };
+      let currentLang = localStorage.getItem("portfolio-language");
+      if (!translations[currentLang]) currentLang = "eng";
+      function localeFor(lang) { return lang === "it" ? "it-IT" : lang === "fr" ? "fr-FR" : "en-IE"; }
+      function applyLanguage(lang, fade = false) {
+        if (!translations[lang]) return;
+        if (fade) document.body.classList.add("language-fade");
+        setTimeout(() => {
+          currentLang = lang;
+          document.documentElement.lang = lang === "eng" ? "en" : lang;
+          document.querySelectorAll("[data-i18n]").forEach(el => { const value = translations[lang][el.dataset.i18n]; if (value) el.textContent = value; });
+          document.querySelectorAll("[data-i18n-html]").forEach(el => { const value = translations[lang][el.dataset.i18nHtml]; if (value) el.innerHTML = value; });
+          document.querySelectorAll("[data-i18n-placeholder]").forEach(el => { const value = translations[lang][el.dataset.i18nPlaceholder]; if (value) el.placeholder = value; });
+          document.querySelectorAll(".lang-btn").forEach(btn => { const active = btn.dataset.lang === lang; btn.classList.toggle("active", active); btn.setAttribute("aria-pressed", String(active)); });
+          localStorage.setItem("portfolio-language", lang);
+          if (typeof updateCalculator === "function") updateCalculator(false);
+          document.body.classList.remove("language-fade");
+        }, fade ? 180 : 0);
+      }
+      document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => applyLanguage(btn.dataset.lang, true)));
+      applyLanguage(currentLang);
 
       // Build a light, deterministic field of atmospheric particles.
       const particleField = document.querySelector(".particle-field");
@@ -678,8 +723,6 @@
       const estimateValue = document.getElementById("estimateValue");
       let displayedTotal = 48000;
       let counterFrame;
-      const euro = new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
-      const integer = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
       function paintRange(input) {
         const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
         input.style.setProperty("--range", pct + "%");
@@ -693,16 +736,21 @@
           const p = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - p, 3);
           displayedTotal = Math.round(from + (target - from) * eased);
-          estimateValue.textContent = euro.format(displayedTotal);
+          estimateValue.textContent = new Intl.NumberFormat(localeFor(currentLang), { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(displayedTotal);
           if (p < 1) counterFrame = requestAnimationFrame(tick);
         }
         counterFrame = requestAnimationFrame(tick);
       }
-      function updateCalculator() {
-        rateOutput.textContent = `€${integer.format(Number(rate.value))}/hr`;
-        hoursOutput.textContent = `${integer.format(Number(hours.value))} hrs`;
+      function updateCalculator(animate = true) {
+        const integer = new Intl.NumberFormat(localeFor(currentLang), { maximumFractionDigits: 0 });
+        const rateUnit = currentLang === "it" ? "/ora" : currentLang === "fr" ? "/h" : "/hr";
+        const hoursUnit = currentLang === "it" ? " ore" : currentLang === "fr" ? " h" : " hrs";
+        rateOutput.textContent = `€${integer.format(Number(rate.value))}${rateUnit}`;
+        hoursOutput.textContent = `${integer.format(Number(hours.value))}${hoursUnit}`;
         paintRange(rate); paintRange(hours);
-        animateTotal(Number(rate.value) * Number(hours.value) * 12);
+        const target = Number(rate.value) * Number(hours.value) * 12;
+        if (animate) animateTotal(target);
+        else { displayedTotal = target; estimateValue.textContent = new Intl.NumberFormat(localeFor(currentLang), { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(target); }
       }
       rate.addEventListener("input", updateCalculator);
       hours.addEventListener("input", updateCalculator);
@@ -729,10 +777,11 @@
       const projectModal = document.getElementById("projectModal");
       const projectBody = document.getElementById("projectModalBody");
       const projectTitle = document.getElementById("projectModalTitle");
+      const browserEmbed = (url, title) => `<div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">${url}</span></div><div class="iframe-wrap"><iframe src="${url}" title="${title}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen"></iframe></div>`;
       const projectData = {
-        wine: { title: "Wine2Digital — Live Preview", html: '<div class="iframe-wrap"><iframe src="https://nextjsspace-topaz.vercel.app" title="Wine2Digital live preview" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' },
-        iwp: { title: "IWP Directory", html: '<div class="project-placeholder"><div class="project-placeholder-inner"><span class="eyebrow">Interactive Podcast Map</span><h3>Discover stories by place.</h3><p>A map-led directory powered by Leaflet, React, PostgreSQL, and Express. Explore the source repository for implementation details.</p><a class="btn btn-primary" href="https://github.com/slemo54/wine-podcast-directory" target="_blank" rel="noopener">View source ↗</a></div></div>' },
-        ai: { title: "AI News Research", html: '<div class="project-placeholder"><div class="project-placeholder-inner"><span class="eyebrow">Wine Intelligence Assistant</span><h3>Research on autopilot.</h3><p>Claude AI and Make.com collaborate in an automated pipeline that turns a noisy news stream into useful intelligence.</p><a class="btn btn-primary" href="https://github.com/slemo54/ai-social-automation" target="_blank" rel="noopener">View source ↗</a></div></div>' }
+        wine: { title: "Wine2Digital — Live Preview", type: "live", url: "https://nextjsspace-topaz.vercel.app" },
+        iwp: { title: "IWP Directory", type: "map" },
+        ai: { title: "AI News Research — Live Preview", type: "live", url: "https://ai-social-automation.vercel.app" }
       };
       function openModal(modal) {
         modal.classList.add("open"); modal.setAttribute("aria-hidden", "false");
@@ -746,8 +795,10 @@
       }
       document.querySelectorAll(".project-open").forEach(button => button.addEventListener("click", () => {
         const id = button.closest(".project-card").dataset.project;
-        projectTitle.textContent = projectData[id].title;
-        projectBody.innerHTML = projectData[id].html;
+        const project = projectData[id];
+        projectTitle.textContent = project.title;
+        projectBody.innerHTML = project.type === "live" ? browserEmbed(project.url, `${project.title} live preview`) : `<div class="map-demo"><div class="map-controls"><input class="map-search" type="search" placeholder="Search podcasts or places…" aria-label="Search map"><button class="region-tag active" type="button">All</button><button class="region-tag" type="button">Europe</button><button class="region-tag" type="button">Americas</button><button class="region-tag" type="button">Asia</button></div><i class="map-pin pin-a"></i><i class="map-pin pin-b"></i><i class="map-pin pin-c"></i><p class="map-note">${translations[currentLang].mapNote}</p></div>`;
+        projectBody.querySelectorAll(".region-tag").forEach(tag => tag.addEventListener("click", () => { projectBody.querySelectorAll(".region-tag").forEach(t => t.classList.remove("active")); tag.classList.add("active"); }));
         openModal(projectModal);
       }));
       projectModal.querySelector(".modal-close").addEventListener("click", () => closeModal(projectModal));
@@ -756,35 +807,24 @@
       // Win95 terminal appends a new fake diagnostic line every 800ms while open.
       const systemModal = document.getElementById("systemModal");
       const terminal = document.getElementById("terminal");
-      const logLines = [
-        "[00:00:01] Loading AnselmoAcquah.portfolio...",
-        "[00:00:02] Establishing secure runtime ........ OK",
-        "[00:00:03] Space Grotesk display engine ........ READY",
-        "[00:00:04] Skills matrix initialized",
-        "[00:00:05] WordPress/PHP module ................. 90%",
-        "[00:00:06] React/Next.js runtime ................ 85%",
-        "[00:00:07] PostgreSQL data channel .............. SECURE",
-        "[00:00:08] Automation services .................. ONLINE",
-        "[00:00:09] Running project deployment checks...",
-        "[00:00:10] wine2digital.app ..................... DEPLOYED",
-        "[00:00:11] iwp_directory.map .................... READY",
-        "[00:00:12] ai_news_research.bot ................. ACTIVE",
-        "[00:00:13] Projects deployed successfully",
-        "[00:00:14] Location resolved: Verona, Italy",
-        "[00:00:15] Connection to anselmoacquah.it: ESTABLISHED"
-      ];
+      const logLines = {
+        eng: ["[00:00:01] Loading AnselmoAcquah.portfolio...","[00:00:02] Establishing secure runtime ........ OK","[00:00:03] Display engine ....................... READY","[00:00:04] Skills matrix initialized","[00:00:05] WordPress/PHP module ................. 90%","[00:00:06] React/Next.js runtime ................ 85%","[00:00:07] PostgreSQL data channel .............. SECURE","[00:00:08] Automation services .................. ONLINE","[00:00:09] Running deployment checks...","[00:00:10] Wine2Digital ......................... DEPLOYED","[00:00:11] IWP Directory map .................... READY","[00:00:12] AI News Research ..................... ACTIVE","[00:00:13] Accessibility checks ................. PASSED","[00:00:14] Location resolved: Verona, Italy","[00:00:15] Contact channel ....................... OPEN","[00:00:16] Connection: ESTABLISHED"],
+        it: ["[00:00:01] Caricamento AnselmoAcquah.portfolio...","[00:00:02] Avvio ambiente sicuro ................. OK","[00:00:03] Motore grafico ....................... PRONTO","[00:00:04] Matrice competenze inizializzata","[00:00:05] Modulo WordPress/PHP .................. 90%","[00:00:06] Ambiente React/Next.js ............... 85%","[00:00:07] Canale PostgreSQL .................... SICURO","[00:00:08] Servizi di automazione ............... ONLINE","[00:00:09] Controllo distribuzioni in corso...","[00:00:10] Wine2Digital ..................... DISTRIBUITO","[00:00:11] Mappa IWP Directory ................. PRONTA","[00:00:12] AI News Research .................... ATTIVA","[00:00:13] Controlli accessibilità ............ SUPERATI","[00:00:14] Posizione rilevata: Verona, Italia","[00:00:15] Canale di contatto .................. APERTO","[00:00:16] Connessione: STABILITA"],
+        fr: ["[00:00:01] Chargement AnselmoAcquah.portfolio...","[00:00:02] Démarrage sécurisé .................... OK","[00:00:03] Moteur graphique ..................... PRÊT","[00:00:04] Matrice de compétences initialisée","[00:00:05] Module WordPress/PHP .................. 90%","[00:00:06] Environnement React/Next.js .......... 85%","[00:00:07] Canal PostgreSQL .................. SÉCURISÉ","[00:00:08] Services d’automatisation ........... EN LIGNE","[00:00:09] Vérification des déploiements...","[00:00:10] Wine2Digital ....................... DÉPLOYÉ","[00:00:11] Carte IWP Directory ................... PRÊTE","[00:00:12] AI News Research ..................... ACTIF","[00:00:13] Contrôles d’accessibilité .......... VALIDÉS","[00:00:14] Position détectée : Vérone, Italie","[00:00:15] Canal de contact .................... OUVERT","[00:00:16] Connexion : ÉTABLIE"]
+      };
       let logTimer, logIndex = 0;
       function appendLog() {
         const line = document.createElement("p");
         line.className = "terminal-line";
-        line.textContent = logLines[logIndex % logLines.length];
+        const lines = logLines[currentLang];
+        line.textContent = lines[logIndex % lines.length];
         terminal.appendChild(line);
         terminal.scrollTop = terminal.scrollHeight;
         logIndex++;
       }
       document.getElementById("systemLogBtn").addEventListener("click", () => {
         terminal.innerHTML = ""; logIndex = 0; appendLog();
-        clearInterval(logTimer); logTimer = setInterval(appendLog, 800);
+        clearInterval(logTimer); logTimer = setInterval(appendLog, 1200);
         openModal(systemModal);
       });
       function closeSystem() { clearInterval(logTimer); closeModal(systemModal); }
