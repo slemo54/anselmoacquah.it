@@ -136,7 +136,7 @@
     main, footer { transition: opacity .18s ease; }
 
     /* Hero */
-    .hero { min-height: 100svh; display: grid; place-items: center; padding: 7rem 0 3rem; overflow: hidden; isolation: isolate; }
+    .hero { min-height: 100svh; display: grid; place-items: center; padding: 5rem 0 2rem; overflow: hidden; isolation: isolate; }
     .hero-orb { position: absolute; border-radius: 50%; filter: blur(6px); opacity: .95; animation: blobPulse 8s ease-in-out infinite; }
     .orb-1 { width: min(70vw, 850px); height: min(70vw, 850px); top: -12%; left: -22%; background: radial-gradient(circle, rgba(139,92,246,.52), rgba(139,92,246,.13) 42%, transparent 70%); }
     .orb-2 { width: min(76vw, 940px); height: min(76vw, 940px); right: -24%; bottom: -24%; background: radial-gradient(circle, rgba(59,130,246,.45), rgba(59,130,246,.1) 45%, transparent 70%); animation-delay: -3s; }
@@ -151,7 +151,7 @@
       font-size: .75rem;
     }
     .location-badge::before { content: ""; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-    .hero-stack { position: relative; height: clamp(380px, 48vw, 610px); display: grid; place-items: center; isolation: isolate; }
+    .hero-stack { position: relative; height: clamp(240px, 38vw, 500px); display: grid; place-items: center; isolation: isolate; }
     .hero-word {
       position: absolute; left: 50%; width: 100%;
       margin: 0; transform: translateX(-50%);
@@ -174,7 +174,7 @@
     }
     .portrait-wrap::after { content: ""; position: absolute; z-index: 3; inset: auto 0 0; height: 18%; background: linear-gradient(180deg, transparent, rgba(10,10,12,.62)); pointer-events: none; }
     .portrait-img { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-top: 1.7rem; text-align: left; }
+    .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-top: 1rem; text-align: left; }
     .hero-intro { max-width: 390px; margin: 0; color: var(--muted); font-size: clamp(.9rem, 1.4vw, 1.05rem); }
     .hero-subtitle { margin: 0 0 .7rem; font: 600 clamp(1.35rem, 3vw, 2.4rem) "Space Grotesk"; letter-spacing: -.04em; }
     .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: flex-end; }
@@ -391,7 +391,7 @@
 
     @media (max-width: 900px) {
       .nav-links a:not(.availability) { display: none; }
-      .hero-stack { height: clamp(320px, 68vw, 490px); }
+      .hero-stack { height: clamp(200px, 50vw, 380px); }
       .hero-word { font-size: clamp(5rem, 15vw, 12rem); white-space: nowrap; line-height: .78; }
       .hero-word-back { top: 10%; } .hero-word-front { bottom: 8%; }
       .portrait-wrap { width: clamp(220px, 48vw, 350px); }
@@ -412,7 +412,7 @@
       .availability { font-size: 0; }
       .availability::after { content: "Available"; font-size: .74rem; }
       .hero { padding-top: 6rem; }
-      .hero-stack { height: 370px; }
+      .hero-stack { height: 260px; }
       .hero-word { font-size: clamp(5rem, 15vw, 12rem); }
       .portrait-wrap { width: 235px; height: 88%; }
       .hero-bottom { flex-direction: column; align-items: stretch; text-align: center; }
@@ -470,7 +470,7 @@
     .hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(circle, black, transparent 78%); }
     .hero-orb { display: none; }
     .location-badge { margin-bottom: .7rem; border-color: rgba(165,255,102,.25); background: rgba(10,10,12,.4); }
-    .hero-stack { height: clamp(430px, 56vw, 690px); }
+    .hero-stack { height: clamp(280px, 42vw, 520px); }
     .hero-word { font-size: clamp(5.2rem, 17vw, 13.5rem); text-transform: uppercase; }
     .hero-word-back { top: 9%; color: rgba(247,246,250,.92); z-index: 1; }
     .hero-word-front { bottom: 6%; z-index: 5; -webkit-text-stroke: 0; color: #f7f6fa; text-shadow: 0 15px 50px rgba(0,0,0,.55); }
