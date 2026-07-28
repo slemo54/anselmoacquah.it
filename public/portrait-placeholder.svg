@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="200" y1="100" x2="200" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <radialGradient id="rglow" cx="200" cy="200" r="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0A0A0C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" fill="#0A0A0C"/>
+  <circle cx="200" cy="220" r="180" fill="url(#rglow)"/>
+  <circle cx="200" cy="175" r="65" fill="url(#glow)" opacity="0.6"/>
+  <ellipse cx="200" cy="340" rx="95" ry="75" fill="url(#glow)" opacity="0.4"/>
+  <text x="200" y="460" text-anchor="middle" fill="#8B5CF6" font-family="sans-serif" font-size="14" opacity="0.5">AA</text>
+</svg>
