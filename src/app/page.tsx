@@ -1,4 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useState } from "react";
 import {
   ArrowUpRightIcon,
   CodeIcon,
@@ -9,10 +12,12 @@ import {
   PhoneIcon,
 } from "@/components/icons";
 
+/* ─── data ─── */
+
 const navigation = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -31,33 +36,197 @@ const skills = [
 const projects = [
   {
     number: "01",
-    title: "Italian Wine Academy",
+    title: "Wine2Digital",
+    subtitle: "Project Management Platform",
     description:
-      "Supporting a high-traffic education platform with WordPress and WooCommerce—from content architecture to dependable day-to-day site operations.",
-    tags: ["WordPress", "WooCommerce", "Web Operations"],
+      "Full-stack web application with Kanban boards, task tracking, and collaboration workflows. Built for wine-industry teams managing complex editorial and production pipelines.",
+    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    live: "https://nextjsspace-topaz.vercel.app",
+    repo: "https://github.com/slemo54/wine2digital-pm",
+    preview: "kanban",
   },
   {
     number: "02",
-    title: "Italian Wine Podcast",
+    title: "IWP Directory",
+    subtitle: "Interactive Podcast Map",
     description:
-      "Keeping a global media platform moving through structured publishing workflows, content operations, and thoughtful digital execution.",
-    tags: ["Content Ops", "Automation", "Publishing"],
+      "Interactive directory of Italian wine podcasts built with Leaflet. Features marker clustering, keyword filters, and location-based exploration across regions and topics.",
+    tags: ["Leaflet", "React", "PostgreSQL", "Express"],
+    live: null,
+    repo: "https://github.com/slemo54/wine-podcast-directory",
+    preview: "map",
   },
   {
     number: "03",
-    title: "Client websites",
+    title: "AI News Research",
+    subtitle: "Wine Intelligence Assistant",
     description:
-      "Designing and building focused, responsive websites that give businesses a polished online presence and remain simple to manage.",
-    tags: ["Web Design", "Development", "SEO"],
-  },
-  {
-    number: "04",
-    title: "Personal projects",
-    description:
-      "Exploring modern web tools through practical builds, integrations, and automations that turn ideas into useful digital products.",
-    tags: ["Next.js", "Supabase", "AI"],
+      "Internal research workflow powered by Claude AI. Supports source evaluation, content discovery, and editorial preparation — turning scattered wine-industry signals into structured briefings.",
+    tags: ["Claude AI", "Make.com", "Automation", "Research"],
+    live: null,
+    repo: "https://github.com/slemo54/ai-social-automation",
+    preview: "chat",
   },
 ];
+
+/* ─── preview components ─── */
+
+function KanbanPreview() {
+  const cols = [
+    {
+      label: "To Do",
+      cards: ["API endpoints", "User auth", "CSV import"],
+    },
+    {
+      label: "In Progress",
+      cards: ["Kanban view", "Drag & drop"],
+    },
+    {
+      label: "Done",
+      cards: ["Project setup", "DB schema", "Deploy"],
+    },
+  ];
+  return (
+    <div className="preview-kanban">
+      {cols.map((col) => (
+        <div key={col.label} className="preview-kanban-col">
+          <span>{col.label}</span>
+          {col.cards.map((c) => (
+            <div key={c} className="preview-kanban-card">
+              {c}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function MapPreview() {
+  const pins = [
+    { left: "22%", top: "35%", delay: "0s" },
+    { left: "38%", top: "28%", delay: "0.15s" },
+    { left: "55%", top: "42%", delay: "0.3s" },
+    { left: "70%", top: "55%", delay: "0.45s" },
+    { left: "45%", top: "60%", delay: "0.6s" },
+  ];
+  return (
+    <div className="preview-map">
+      <div className="preview-map-grid" />
+      <div className="preview-map-search">
+        <span>🔍</span> Search podcasts...
+      </div>
+      {pins.map((p, i) => (
+        <div
+          key={i}
+          className="preview-map-pin"
+          style={{ left: p.left, top: p.top, animationDelay: p.delay }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function ChatPreview() {
+  return (
+    <div className="preview-chat">
+      <div className="preview-chat-msg user">
+        Find recent coverage on natural wine trends in Europe.
+      </div>
+      <div className="preview-chat-msg ai">
+        <span className="preview-chat-avatar">AI</span>
+        <div>
+          I found <strong>12 relevant sources</strong> across 4 publications.
+          Top match: Wine Spectator&apos;s Q3 analysis on biodynamic viticulture
+          in Burgundy and Piedmont…
+          <span className="preview-chat-typing" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const previewMap: Record<string, () => ReactNode> = {
+  kanban: KanbanPreview,
+  map: MapPreview,
+  chat: ChatPreview,
+};
+
+/* ─── project modal ─── */
+
+function ProjectModal({
+  project,
+  onClose,
+}: {
+  project: (typeof projects)[number];
+  onClose: () => void;
+}) {
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <div>
+            <h3>{project.title}</h3>
+            <p className="modal-subtitle">{project.subtitle}</p>
+          </div>
+          <button className="modal-close" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </div>
+
+        {project.live ? (
+          <div className="modal-embed">
+            <div className="modal-embed-bar">
+              <span className="modal-embed-dot" />
+              <span className="modal-embed-dot" />
+              <span className="modal-embed-dot" />
+              <span className="modal-embed-url">{project.live}</span>
+            </div>
+            <iframe
+              src={project.live}
+              title={project.title}
+              className="modal-iframe"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <div className="modal-placeholder">
+            {(() => {
+              const Preview = previewMap[project.preview];
+              return Preview ? <Preview /> : null;
+            })()}
+            <p className="modal-placeholder-text">
+              Live demo available on request — source code on GitHub.
+            </p>
+          </div>
+        )}
+
+        <div className="modal-actions">
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noreferrer"
+              className="button button-primary"
+            >
+              Open live <ArrowUpRightIcon />
+            </a>
+          )}
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noreferrer"
+            className="button button-secondary"
+          >
+            <GithubIcon /> Source code
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── contact link ─── */
 
 type ContactLinkProps = {
   href: string;
@@ -88,7 +257,13 @@ function ContactLink({ href, icon, label, value }: ContactLinkProps) {
   );
 }
 
+/* ─── page ─── */
+
 export default function Home() {
+  const [activeProject, setActiveProject] = useState<
+    (typeof projects)[number] | null
+  >(null);
+
   return (
     <>
       <header className="site-header">
@@ -110,6 +285,7 @@ export default function Home() {
       </header>
 
       <main id="top">
+        {/* ─── Hero ─── */}
         <section className="hero page-shell" aria-labelledby="hero-heading">
           <div className="hero-glow" aria-hidden="true" />
           <div className="hero-content">
@@ -128,7 +304,7 @@ export default function Home() {
               thoughtful web development meets practical IT.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#experience">
+              <a className="button button-primary" href="#projects">
                 View my work <ArrowUpRightIcon />
               </a>
               <a className="button button-secondary" href="#contact">
@@ -164,10 +340,15 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── About ─── */}
         <section className="section page-shell" id="about">
           <div className="section-heading">
             <p className="section-number">01 / About</p>
-            <h2>Technology that works<br />for people.</h2>
+            <h2>
+              Technology that works
+              <br />
+              for people.
+            </h2>
           </div>
           <div className="about-copy">
             <p>
@@ -188,10 +369,15 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── Skills ─── */}
         <section className="section page-shell skills-section" id="skills">
           <div className="section-heading">
             <p className="section-number">02 / Skills</p>
-            <h2>Tools I use to<br />make things happen.</h2>
+            <h2>
+              Tools I use to
+              <br />
+              make things happen.
+            </h2>
           </div>
           <div className="skill-grid">
             {skills.map((skill, index) => (
@@ -203,34 +389,81 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section page-shell projects-section" id="experience">
+        {/* ─── Projects ─── */}
+        <section
+          className="section page-shell projects-section"
+          id="projects"
+        >
           <div className="section-heading">
-            <p className="section-number">03 / Experience</p>
-            <h2>Selected work &amp;<br />ongoing projects.</h2>
+            <p className="section-number">03 / Projects</p>
+            <h2>
+              Selected work &amp;
+              <br />
+              ongoing builds.
+            </h2>
           </div>
           <div className="project-list">
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <span className="project-number">{project.number}</span>
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <ul aria-label={`${project.title} technologies`}>
-                    {project.tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+            {projects.map((project) => {
+              const Preview = previewMap[project.preview];
+              return (
+                <article className="project-card" key={project.title}>
+                  <button
+                    className="project-preview"
+                    onClick={() => setActiveProject(project)}
+                    aria-label={`Open ${project.title} preview`}
+                  >
+                    {Preview ? <Preview /> : null}
+                    <span className="project-preview-overlay">
+                      <span>View project</span>
+                    </span>
+                  </button>
+                  <div className="project-body">
+                    <span className="project-number">{project.number}</span>
+                    <h3>{project.title}</h3>
+                    <p className="project-subtitle">{project.subtitle}</p>
+                    <p>{project.description}</p>
+                    <ul aria-label={`${project.title} technologies`}>
+                      {project.tags.map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
+                    <div className="project-links">
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="project-link"
+                        >
+                          Live <ArrowUpRightIcon />
+                        </a>
+                      )}
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link"
+                      >
+                        <GithubIcon /> Source
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
+        {/* ─── Contact ─── */}
         <section className="contact-section" id="contact">
           <div className="page-shell contact-inner">
             <div>
               <p className="section-number">04 / Contact</p>
-              <h2>Have a project in mind?<br /><span>Let&apos;s build it.</span></h2>
+              <h2>
+                Have a project in mind?
+                <br />
+                <span>Let&apos;s build it.</span>
+              </h2>
               <p className="contact-intro">
                 I&apos;m always open to interesting work, collaborations, and
                 conversations about technology.
@@ -273,6 +506,13 @@ export default function Home() {
           <a href="#top">Back to top ↑</a>
         </div>
       </footer>
+
+      {activeProject && (
+        <ProjectModal
+          project={activeProject}
+          onClose={() => setActiveProject(null)}
+        />
+      )}
     </>
   );
 }
