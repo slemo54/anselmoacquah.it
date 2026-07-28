@@ -282,65 +282,6 @@
     .project-actions { display: flex; gap: .6rem; }
     .project-actions .btn { min-height: 42px; flex: 1; padding: .55rem .8rem; font-size: .75rem; }
 
-    /* Calculator */
-    #calculator {
-      isolation: isolate;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 12% 22%, rgba(139,92,246,.28), transparent 34rem),
-        radial-gradient(circle at 88% 72%, rgba(59,130,246,.2), transparent 36rem),
-        linear-gradient(135deg, #080810 0%, #0d0b1b 48%, #080d1b 100%);
-    }
-    #calculator::before {
-      content: ""; position: absolute; z-index: -1; inset: 0; opacity: .22; pointer-events: none;
-      background-image: linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px);
-      background-size: 54px 54px;
-      -webkit-mask-image: radial-gradient(circle at center, black, transparent 78%);
-      mask-image: radial-gradient(circle at center, black, transparent 78%);
-    }
-    #calculator::after {
-      content: ""; position: absolute; z-index: -1; width: 34rem; height: 34rem; right: -12rem; top: -12rem;
-      border-radius: 50%; background: linear-gradient(135deg, rgba(139,92,246,.5), rgba(59,130,246,.18) 55%, rgba(165,255,102,.12));
-      filter: blur(16px); opacity: .7; animation: calculatorOrb 9s ease-in-out infinite;
-    }
-    .calculator-panel {
-      position: relative; isolation: isolate; overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(2.5rem, 8vw, 7rem);
-      padding: clamp(2rem, 6vw, 5rem); border: 1px solid rgba(255,255,255,.17); border-radius: 36px;
-      background: linear-gradient(145deg, rgba(28,25,48,.72), rgba(8,10,20,.66));
-      backdrop-filter: blur(26px); -webkit-backdrop-filter: blur(26px);
-      box-shadow: 0 40px 120px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.1);
-    }
-    .calculator-panel::before {
-      content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .18;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
-    }
-    .calculator-panel::after {
-      content: ""; position: absolute; z-index: -1; width: 24rem; height: 24rem; left: -12rem; bottom: -15rem;
-      border-radius: 50%; background: rgba(139,92,246,.32); filter: blur(45px); pointer-events: none;
-    }
-    .calculator-copy .section-title { margin-bottom: 1.5rem; font-size: clamp(2.8rem, 6vw, 5.5rem); }
-    .calculator-copy p { max-width: 440px; color: #c3c1ce; font-size: 1.02rem; }
-    .calculator-controls { align-self: center; }
-    .range-group + .range-group { margin-top: 2.8rem; }
-    .range-label { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.35rem; color: #f1eff7; font-weight: 600; }
-    .range-label output { min-width: 112px; padding: .65rem .9rem; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; color: white; background: linear-gradient(135deg, rgba(139,92,246,.82), rgba(59,130,246,.7)); box-shadow: 0 10px 30px rgba(65,73,220,.25); font: 700 1.35rem "Space Grotesk"; text-align: center; transition: transform .2s var(--ease), box-shadow .2s; }
-    .range-label output.bump { animation: badgeBump .3s var(--ease); }
-    input[type="range"] { width: 100%; height: 12px; margin: 0; border: 1px solid rgba(255,255,255,.1); border-radius: 99px; appearance: none; background: linear-gradient(90deg, var(--purple) 0%, var(--blue) var(--range), rgba(255,255,255,.12) var(--range), rgba(255,255,255,.07) 100%); box-shadow: inset 0 2px 7px rgba(0,0,0,.38), 0 0 20px rgba(59,130,246,.1); outline: none; }
-    input[type="range"]::-webkit-slider-thumb { width: 24px; height: 24px; border: 4px solid white; border-radius: 50%; appearance: none; background: var(--blue); box-shadow: 0 0 0 7px rgba(96,101,246,.22), 0 0 28px rgba(96,101,246,.9); transition: transform .2s; }
-    input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border: 4px solid white; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 7px rgba(96,101,246,.22), 0 0 28px rgba(96,101,246,.9); }
-    input[type="range"]:hover::-webkit-slider-thumb, input[type="range"]:focus-visible::-webkit-slider-thumb { transform: scale(1.16); }
-    input[type="range"]:focus-visible { box-shadow: 0 0 0 4px rgba(139,92,246,.22); }
-    .range-minmax { display: flex; justify-content: space-between; margin-top: .8rem; color: #bbb8c8; font-size: .74rem; font-weight: 600; letter-spacing: .04em; }
-    .estimate { margin-top: 3.7rem; padding-top: 2.4rem; border-top: 1px solid transparent; border-image: linear-gradient(90deg, rgba(139,92,246,.85), rgba(59,130,246,.45), transparent) 1; }
-    .estimate-label { display: block; margin-bottom: .75rem; color: #bdbac8; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-    .estimate-value { display: block; width: max-content; max-width: 100%; font: 700 clamp(3.5rem, 8vw, 6rem)/.92 "Space Grotesk"; letter-spacing: -.075em; color: transparent; background: linear-gradient(100deg, #a873ff, #4b9cff 55%, var(--green)); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 0 25px rgba(89,108,246,.25)); }
-    .estimate-breakdown { margin: 1rem 0 1.5rem; color: #d0cdda; font-size: .86rem; letter-spacing: .025em; }
-    .quote-btn { min-height: 50px; padding-inline: 1.25rem; border-color: rgba(165,255,102,.25); background: rgba(165,255,102,.08); }
-    .quote-btn:hover { color: #0a0a0c; background: var(--green); box-shadow: 0 12px 34px rgba(165,255,102,.2); }
-    @keyframes calculatorOrb { 50% { transform: translate(-2rem, 2rem) scale(1.08); } }
-    @keyframes badgeBump { 50% { transform: translateY(-3px) scale(1.045); box-shadow: 0 12px 36px rgba(89,108,246,.5); } }
 
     /* Contact */
     .contact-intro { max-width: 900px; margin-bottom: 4rem; }
@@ -434,7 +375,7 @@
       .hero-word { font-size: clamp(5rem, 15vw, 12rem); white-space: nowrap; line-height: .78; }
       .hero-word-back { top: 10%; } .hero-word-front { bottom: 8%; }
       .portrait-wrap { width: clamp(220px, 48vw, 350px); }
-      .about-lead, .skills-layout, .calculator-panel { grid-template-columns: 1fr; }
+      .about-lead, .skills-layout { grid-template-columns: 1fr; }
       .about-copy { margin-left: 0; }
       .skills-sticky { position: relative; top: 0; }
       .project-grid { grid-template-columns: 1fr; }
@@ -463,10 +404,6 @@
       .feature-icon { margin-bottom: 2.5rem; }
       .grid-star { display: none; }
       .project-preview { min-height: 240px; }
-      .calculator-panel { padding: 1.5rem; border-radius: 22px; gap: 2.4rem; }
-      .calculator-copy .section-title { font-size: clamp(2.7rem, 14vw, 4.2rem); }
-      .range-label { align-items: center; }
-      .range-label output { min-width: 100px; font-size: 1.1rem; }
       .estimate { margin-top: 3rem; }
       .estimate-value { font-size: clamp(3.2rem, 16vw, 5rem); }
       .contact-sentence { line-height: 1.8; }
@@ -692,7 +629,7 @@
         <div class="project-grid">
           <article class="project-card" data-project="wine">
             <button class="project-preview project-open" aria-label="Preview Wine2Digital"><span class="preview-grid"></span><span class="preview-glow" style="--project-gradient:#8b5cf6"></span><span class="demo-window"><span class="demo-top"><i></i><i></i><i></i></span><span class="kanban"><span class="kanban-col"><b>BACKLOG</b><i class="kanban-card"></i><i class="kanban-card"></i></span><span class="kanban-col"><b>IN PROGRESS</b><i class="kanban-card"></i></span><span class="kanban-col"><b>DONE</b><i class="kanban-card"></i><i class="kanban-card"></i></span></span></span></button>
-            <div class="project-content"><span class="project-index">01 / PRODUCTIVITY</span><h3>Wine2Digital</h3><p class="project-subtitle">Project Management Platform</p><p class="project-description">A focused project workspace for planning, organizing, and shipping collaborative work.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Tailwind</span></div><div class="project-actions"><a class="btn" href="https://nextjsspace-topaz.vercel.app" target="_blank" rel="noopener">Live ↗</a><a class="btn" href="https://github.com/slemo54/wine2digital-pm" target="_blank" rel="noopener">Source ↗</a></div></div>
+            <div class="project-content"><span class="project-index">01 / PRODUCTIVITY</span><h3>Wine2Digital</h3><p class="project-subtitle">Project Management Platform</p><p class="project-description">A focused project workspace for planning, organizing, and shipping collaborative work.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Tailwind</span></div><div class="project-actions"><a class="btn" href="https://pm.wine2digital.com" target="_blank" rel="noopener">Live ↗</a><a class="btn" href="https://github.com/slemo54/wine2digital-pm" target="_blank" rel="noopener">Source ↗</a></div></div>
           </article>
           <article class="project-card" data-project="iwp">
             <button class="project-preview project-open" aria-label="Preview IWP Directory"><span class="preview-grid"></span><span class="preview-glow" style="--project-gradient:#3b82f6"></span><span class="demo-window mini-map"><i class="demo-pin"></i><i class="demo-pin"></i><i class="demo-pin"></i></span></button>
@@ -706,18 +643,6 @@
       </div>
     </section>
 
-    <section id="calculator">
-      <div class="container">
-        <div class="calculator-panel">
-          <div class="calculator-copy"><span class="eyebrow" data-i18n="plan">Plan an engagement</span><h2 class="section-title" data-i18n-html="estimateTitle">Estimate the <span class="gradient-text">investment.</span></h2><p>Adjust the scope to get a quick annual estimate. Every real project starts with a conversation and receives a tailored proposal.</p></div>
-          <div class="calculator-controls">
-            <div class="range-group"><label class="range-label" for="rate"><span data-i18n="hourlyRate">Hourly Rate</span><output id="rateOutput">€50/hr</output></label><input id="rate" type="range" min="20" max="150" value="50" aria-label="Hourly rate"><div class="range-minmax"><span>€20</span><span>€150</span></div></div>
-            <div class="range-group"><label class="range-label" for="hours"><span data-i18n="hoursMonth">Hours per Month</span><output id="hoursOutput">80 hrs</output></label><input id="hours" type="range" min="10" max="200" value="80" aria-label="Hours per month"><div class="range-minmax"><span>10 hrs</span><span>200 hrs</span></div></div>
-            <div class="estimate" aria-live="polite"><span class="estimate-label" data-i18n="annual">Your estimated annual investment:</span><strong class="estimate-value" id="estimateValue">€48,000</strong><p class="estimate-breakdown" id="estimateBreakdown">€50/hr × 80 hrs/mo × 12 months</p><a class="btn quote-btn" href="#contact">Get a real quote <span>→</span></a></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section id="contact">
       <div class="container">
@@ -762,13 +687,13 @@
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const translations = {
         eng: {
-          navAbout:"About",navSkills:"Skills",navProjects:"Projects",navContact:"Contact",available:"Available for work",location:"Based in Verona, Italy",heroBack:"DEVELOPER",heroFront:"WEB",specialist:"IT Specialist",heroIntro:"I build reliable digital products, intelligent automations, and web experiences that make complex work feel effortless.",viewProjects:"View Projects",getInTouch:"Get in Touch",whatIDo:"WHAT I DO",aboutTitle:'Ideas into <span class="gradient-text">impact.</span>',aboutCopy:"I’m Anselmo Acquah, a Web Developer & IT Specialist combining full-stack engineering with practical automation. From WordPress platforms to AI-enhanced workflows, I focus on thoughtful systems that perform.",wpExpert:"WordPress Expert",fullStack:"Full-Stack Dev",automation:"Automation",aiIntegration:"AI Integration",toolkit:"TECHNICAL TOOLKIT",skillsTitle:'Built with <span class="gradient-text">range.</span>',selectedWork:"SELECTED WORK",projectsTitle:'Projects with <span class="gradient-text">purpose.</span>',plan:"PLAN AN ENGAGEMENT",estimateTitle:'Estimate the <span class="gradient-text">investment.</span>',hourlyRate:"Hourly Rate",hoursMonth:"Hours per Month",annual:"Your estimated annual investment:",startConversation:"START A CONVERSATION",contactTitle:'Have something in <span class="gradient-text">mind?</span>',heyName:"Hey, my name is",from:"and I am from",discuss:"I would like to discuss",reach:"You can reach me at",collaboration:"Collaboration",potential:"Potential Project",freelance:"Freelance Work",hi:"Just Saying Hi",sendIntro:"Send introduction",systemLog:"View System Log",namePlaceholder:"your name",locationPlaceholder:"your location",mapNote:"Live demo available on request — source code on GitHub"
+          navAbout:"About",navSkills:"Skills",navProjects:"Projects",navContact:"Contact",available:"Available for work",location:"Based in Verona, Italy",heroBack:"DEVELOPER",heroFront:"WEB",specialist:"IT Specialist",heroIntro:"I build reliable digital products, intelligent automations, and web experiences that make complex work feel effortless.",viewProjects:"View Projects",getInTouch:"Get in Touch",whatIDo:"WHAT I DO",aboutTitle:'Ideas into <span class="gradient-text">impact.</span>',aboutCopy:"I’m Anselmo Acquah, a Web Developer & IT Specialist combining full-stack engineering with practical automation. From WordPress platforms to AI-enhanced workflows, I focus on thoughtful systems that perform.",wpExpert:"WordPress Expert",fullStack:"Full-Stack Dev",automation:"Automation",aiIntegration:"AI Integration",toolkit:"TECHNICAL TOOLKIT",skillsTitle:'Built with <span class="gradient-text">range.</span>',selectedWork:"SELECTED WORK",projectsTitle:'Projects with <span class="gradient-text">purpose.</span>',plan:"PLAN AN ENGAGEMENT",estimateTitle:'Estimate the <span class="gradient-text">investment.</span>',startConversation:"START A CONVERSATION",contactTitle:'Have something in <span class="gradient-text">mind?</span>',heyName:"Hey, my name is",from:"and I am from",discuss:"I would like to discuss",reach:"You can reach me at",collaboration:"Collaboration",potential:"Potential Project",freelance:"Freelance Work",hi:"Just Saying Hi",sendIntro:"Send introduction",systemLog:"View System Log",namePlaceholder:"your name",locationPlaceholder:"your location",mapNote:"Live demo available on request — source code on GitHub"
         },
         it: {
-          navAbout:"Chi sono",navSkills:"Competenze",navProjects:"Progetti",navContact:"Contatti",available:"Disponibile per lavoro",location:"Con base a Verona, Italia",heroBack:"SVILUPPATORE",heroFront:"WEB",specialist:"Specialista IT",heroIntro:"Creo prodotti digitali affidabili, automazioni intelligenti ed esperienze web che rendono semplice il lavoro complesso.",viewProjects:"Vedi Progetti",getInTouch:"Contattami",whatIDo:"COSA FACCIO",aboutTitle:'Dalle idee all’<span class="gradient-text">impatto.</span>',aboutCopy:"Sono Anselmo Acquah, sviluppatore web e specialista IT che combina ingegneria full-stack con automazione pratica. Dalle piattaforme WordPress ai flussi di lavoro potenziati dall'AI, mi concentro su sistemi pensati che funzionano.",wpExpert:"Esperto WordPress",fullStack:"Sviluppatore Full-Stack",automation:"Automazione",aiIntegration:"Integrazione AI",toolkit:"COMPETENZE TECNICHE",skillsTitle:'Costruito con <span class="gradient-text">versatilità.</span>',selectedWork:"PROGETTI SELEZIONATI",projectsTitle:'Progetti con uno <span class="gradient-text">scopo.</span>',plan:"PIANIFICA UNA COLLABORAZIONE",estimateTitle:'Stima l’<span class="gradient-text">investimento.</span>',hourlyRate:"Tariffa Oraria",hoursMonth:"Ore al Mese",annual:"Il tuo investimento annuo stimato:",startConversation:"INIZIA UNA CONVERSAZIONE",contactTitle:'Hai qualcosa in <span class="gradient-text">mente?</span>',heyName:"Ciao, mi chiamo",from:"e vengo da",discuss:"vorrei discutere di",reach:"Puoi contattarmi a",collaboration:"Collaborazione",potential:"Progetto Potenziale",freelance:"Lavoro Freelance",hi:"Solo un Saluto",sendIntro:"Invia presentazione",systemLog:"Visualizza Log di Sistema",namePlaceholder:"il tuo nome",locationPlaceholder:"la tua città",mapNote:"Demo live disponibile su richiesta — codice sorgente su GitHub"
+          navAbout:"Chi sono",navSkills:"Competenze",navProjects:"Progetti",navContact:"Contatti",available:"Disponibile per lavoro",location:"Con base a Verona, Italia",heroBack:"SVILUPPATORE",heroFront:"WEB",specialist:"Specialista IT",heroIntro:"Creo prodotti digitali affidabili, automazioni intelligenti ed esperienze web che rendono semplice il lavoro complesso.",viewProjects:"Vedi Progetti",getInTouch:"Contattami",whatIDo:"COSA FACCIO",aboutTitle:'Dalle idee all’<span class="gradient-text">impatto.</span>',aboutCopy:"Sono Anselmo Acquah, sviluppatore web e specialista IT che combina ingegneria full-stack con automazione pratica. Dalle piattaforme WordPress ai flussi di lavoro potenziati dall'AI, mi concentro su sistemi pensati che funzionano.",wpExpert:"Esperto WordPress",fullStack:"Sviluppatore Full-Stack",automation:"Automazione",aiIntegration:"Integrazione AI",toolkit:"COMPETENZE TECNICHE",skillsTitle:'Costruito con <span class="gradient-text">versatilità.</span>',selectedWork:"PROGETTI SELEZIONATI",projectsTitle:'Progetti con uno <span class="gradient-text">scopo.</span>',plan:"PIANIFICA UNA COLLABORAZIONE",estimateTitle:'Stima l’<span class="gradient-text">investimento.</span>',startConversation:"INIZIA UNA CONVERSAZIONE",contactTitle:'Hai qualcosa in <span class="gradient-text">mente?</span>',heyName:"Ciao, mi chiamo",from:"e vengo da",discuss:"vorrei discutere di",reach:"Puoi contattarmi a",collaboration:"Collaborazione",potential:"Progetto Potenziale",freelance:"Lavoro Freelance",hi:"Solo un Saluto",sendIntro:"Invia presentazione",systemLog:"Visualizza Log di Sistema",namePlaceholder:"il tuo nome",locationPlaceholder:"la tua città",mapNote:"Demo live disponibile su richiesta — codice sorgente su GitHub"
         },
         fr: {
-          navAbout:"À propos",navSkills:"Compétences",navProjects:"Projets",navContact:"Contact",available:"Disponible pour travail",location:"Basé à Vérone, Italie",heroBack:"DÉVELOPPEUR",heroFront:"WEB",specialist:"Spécialiste IT",heroIntro:"Je crée des produits numériques fiables, des automatisations intelligentes et des expériences web qui simplifient le travail complexe.",viewProjects:"Voir Projets",getInTouch:"Me Contacter",whatIDo:"CE QUE JE FAIS",aboutTitle:'Des idées à l’<span class="gradient-text">impact.</span>',aboutCopy:"Je suis Anselmo Acquah, développeur web et spécialiste IT alliant ingénierie full-stack et automatisation pratique. Des plateformes WordPress aux flux de travail augmentés par l'IA, je me concentre sur des systèmes réfléchis et performants.",wpExpert:"Expert WordPress",fullStack:"Développeur Full-Stack",automation:"Automatisation",aiIntegration:"Intégration IA",toolkit:"COMPÉTENCES TECHNIQUES",skillsTitle:'Construit avec <span class="gradient-text">polyvalence.</span>',selectedWork:"PROJETS SÉLECTIONNÉS",projectsTitle:'Des projets avec un <span class="gradient-text">but.</span>',plan:"PLANIFIER UNE COLLABORATION",estimateTitle:'Estimez l’<span class="gradient-text">investissement.</span>',hourlyRate:"Taux Horaire",hoursMonth:"Heures par Mois",annual:"Votre investissement annuel estimé :",startConversation:"LANCER UNE CONVERSATION",contactTitle:'Vous avez un projet en <span class="gradient-text">tête ?</span>',heyName:"Salut, je m’appelle",from:"et je viens de",discuss:"je voudrais discuter de",reach:"Vous pouvez me joindre à",collaboration:"Collaboration",potential:"Projet Potentiel",freelance:"Travail Freelance",hi:"Dire Bonjour",sendIntro:"Envoyer présentation",systemLog:"Voir le Journal Système",namePlaceholder:"votre nom",locationPlaceholder:"votre ville",mapNote:"Démo en direct disponible sur demande — code source sur GitHub"
+          navAbout:"À propos",navSkills:"Compétences",navProjects:"Projets",navContact:"Contact",available:"Disponible pour travail",location:"Basé à Vérone, Italie",heroBack:"DÉVELOPPEUR",heroFront:"WEB",specialist:"Spécialiste IT",heroIntro:"Je crée des produits numériques fiables, des automatisations intelligentes et des expériences web qui simplifient le travail complexe.",viewProjects:"Voir Projets",getInTouch:"Me Contacter",whatIDo:"CE QUE JE FAIS",aboutTitle:'Des idées à l’<span class="gradient-text">impact.</span>',aboutCopy:"Je suis Anselmo Acquah, développeur web et spécialiste IT alliant ingénierie full-stack et automatisation pratique. Des plateformes WordPress aux flux de travail augmentés par l'IA, je me concentre sur des systèmes réfléchis et performants.",wpExpert:"Expert WordPress",fullStack:"Développeur Full-Stack",automation:"Automatisation",aiIntegration:"Intégration IA",toolkit:"COMPÉTENCES TECHNIQUES",skillsTitle:'Construit avec <span class="gradient-text">polyvalence.</span>',selectedWork:"PROJETS SÉLECTIONNÉS",projectsTitle:'Des projets avec un <span class="gradient-text">but.</span>',plan:"PLANIFIER UNE COLLABORATION",estimateTitle:'Estimez l’<span class="gradient-text">investissement.</span>',startConversation:"LANCER UNE CONVERSATION",contactTitle:'Vous avez un projet en <span class="gradient-text">tête ?</span>',heyName:"Salut, je m’appelle",from:"et je viens de",discuss:"je voudrais discuter de",reach:"Vous pouvez me joindre à",collaboration:"Collaboration",potential:"Projet Potentiel",freelance:"Travail Freelance",hi:"Dire Bonjour",sendIntro:"Envoyer présentation",systemLog:"Voir le Journal Système",namePlaceholder:"votre nom",locationPlaceholder:"votre ville",mapNote:"Démo en direct disponible sur demande — code source sur GitHub"
         }
       };
       let currentLang = localStorage.getItem("portfolio-language");
@@ -866,57 +791,6 @@
       }, { threshold: .35 });
       document.querySelectorAll(".skill-item").forEach(item => skillObserver.observe(item));
 
-      // Calculator inputs update their fill and animate smoothly to the new total.
-      const rate = document.getElementById("rate");
-      const hours = document.getElementById("hours");
-      const rateOutput = document.getElementById("rateOutput");
-      const hoursOutput = document.getElementById("hoursOutput");
-      const estimateValue = document.getElementById("estimateValue");
-      const estimateBreakdown = document.getElementById("estimateBreakdown");
-      let displayedTotal = 48000;
-      let counterFrame;
-      function paintRange(input) {
-        const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
-        input.style.setProperty("--range", pct + "%");
-      }
-      function animateTotal(target) {
-        cancelAnimationFrame(counterFrame);
-        estimateValue.classList.remove("pulse");
-        void estimateValue.offsetWidth;
-        estimateValue.classList.add("pulse");
-        const from = displayedTotal;
-        const start = performance.now();
-        const duration = reduceMotion ? 1 : 500;
-        function tick(now) {
-          const p = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          displayedTotal = Math.round(from + (target - from) * eased);
-          estimateValue.textContent = new Intl.NumberFormat(localeFor(currentLang), { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(displayedTotal);
-          if (p < 1) counterFrame = requestAnimationFrame(tick);
-        }
-        counterFrame = requestAnimationFrame(tick);
-      }
-      function updateCalculator(animate = true) {
-        const integer = new Intl.NumberFormat(localeFor(currentLang), { maximumFractionDigits: 0 });
-        const rateUnit = currentLang === "it" ? "/ora" : currentLang === "fr" ? "/h" : "/hr";
-        const hoursUnit = currentLang === "it" ? " ore" : currentLang === "fr" ? " h" : " hrs";
-        rateOutput.textContent = `€${integer.format(Number(rate.value))}${rateUnit}`;
-        hoursOutput.textContent = `${integer.format(Number(hours.value))}${hoursUnit}`;
-        [rateOutput, hoursOutput].forEach(output => {
-          output.classList.remove("bump");
-          void output.offsetWidth;
-          if (animate) output.classList.add("bump");
-        });
-        paintRange(rate); paintRange(hours);
-        const monthUnit = currentLang === "it" ? "mesi" : currentLang === "fr" ? "mois" : "months";
-        estimateBreakdown.textContent = `€${integer.format(Number(rate.value))}${rateUnit} × ${integer.format(Number(hours.value))}${hoursUnit}/${currentLang === "it" ? "mese" : currentLang === "fr" ? "mois" : "mo"} × 12 ${monthUnit}`;
-        const target = Number(rate.value) * Number(hours.value) * 12;
-        if (animate) animateTotal(target);
-        else { displayedTotal = target; estimateValue.textContent = new Intl.NumberFormat(localeFor(currentLang), { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(target); }
-      }
-      rate.addEventListener("input", updateCalculator);
-      hours.addEventListener("input", updateCalculator);
-      paintRange(rate); paintRange(hours);
 
       // Contact tags behave as an accessible single-selection toggle group.
       const tags = [...document.querySelectorAll(".toggle-tag")];
@@ -941,9 +815,9 @@
       const projectTitle = document.getElementById("projectModalTitle");
       const browserEmbed = (url, title) => `<div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">${url}</span></div><div class="iframe-wrap"><iframe src="${url}" title="${title}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen"></iframe></div>`;
       const projectData = {
-        wine: { title: "Wine2Digital — Live Preview", type: "live", url: "https://nextjsspace-topaz.vercel.app" },
-        iwp: { title: "IWP Directory", type: "map" },
-        ai: { title: "AI News Research — Live Preview", type: "live", url: "https://ai-social-automation.vercel.app" }
+        wine: { title: "Wine2Digital — Live Preview", type: "live", url: "https://pm.wine2digital.com" },
+        iwp: { title: "IWP Directory — Live Preview", type: "live", url: "https://kimi-podcast-map-anselmos-projects-c2149e27.vercel.app" },
+        ai: { title: "AI News Research — Live Preview", type: "live", url: "https://wine-news-research-tool.vercel.app" }
       };
       function openModal(modal) {
         modal.classList.add("open"); modal.setAttribute("aria-hidden", "false");
