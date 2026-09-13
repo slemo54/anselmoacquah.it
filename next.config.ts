@@ -1,13 +1,21 @@
 import type { NextConfig } from "next";
 
+/**
+ * Routing source of truth: Next.js App Router.
+ * `/portfolio` is the public UI. Static HTML must not be served.
+ */
 const nextConfig: NextConfig = {
-  /* Redirect root to portfolio */
   async redirects() {
     return [
       {
         source: "/",
-        destination: "/portfolio/",
+        destination: "/portfolio",
         permanent: false,
+      },
+      {
+        source: "/portfolio/index.html",
+        destination: "/portfolio",
+        permanent: true,
       },
     ];
   },
