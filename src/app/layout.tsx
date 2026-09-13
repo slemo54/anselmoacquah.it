@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, IBM_Plex_Mono, Manrope } from "next/font/google";
 import { ArtDirection } from "@/theme/tokens";
+import { MotionProvider } from "@/motion";
 import "./globals.css";
 import { SiteIdentity } from "@/content/site";
 
@@ -54,7 +55,9 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }
