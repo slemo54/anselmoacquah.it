@@ -101,6 +101,15 @@ export class Icons {
     );
   }
 
+  static person(props: IconProps = {}) {
+    return (
+      <svg {...defaults} {...props}>
+        <circle cx="12" cy="8" r="3.2" />
+        <path d="M5 19.2c.8-3.2 3.4-5 7-5s6.2 1.8 7 5" />
+      </svg>
+    );
+  }
+
   static grid(props: IconProps = {}) {
     return (
       <svg {...defaults} {...props}>
