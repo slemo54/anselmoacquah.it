@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { LocaleCopy, type Copy, type Locale } from "@/content/locale";
+import { Language } from "@/i18n/language";
 
 type LocaleContextValue = {
   locale: Locale;
@@ -23,7 +24,14 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 export class LocaleController {
   static applyDocument(locale: Locale): void {
     document.documentElement.lang = LocaleCopy.htmlLang(locale);
+    document.title = Language.copy(locale).seo.title;
     LocaleCopy.persist(locale);
+  }
+
+  static initialLocale(): Locale {
+    const stored = window.localStorage.getItem(LocaleCopy.storageKey);
+    if (LocaleCopy.isLocale(stored)) return stored;
+    return Language.fromNavigator(navigator.language);
   }
 }
 
@@ -32,9 +40,9 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    const stored = LocaleCopy.readStored();
-    setLocaleState(stored);
-    LocaleController.applyDocument(stored);
+    const next = LocaleController.initialLocale();
+    setLocaleState(next);
+    LocaleController.applyDocument(next);
   }, []);
 
   const setLocale = useCallback((next: Locale) => {

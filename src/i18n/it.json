@@ -1,0 +1,118 @@
+{
+  "seo": {
+    "title": "Anselmo Acquah — A Verona costruisco siti e sistemi che restano utili",
+    "description": "Sono Anselmo Acquah, sviluppatore web e specialista IT a Verona. Progetto e pubblico siti, automazioni e strumenti di AI pratici — scrivimi quando hai qualcosa da costruire.",
+    "ogTitle": "Anselmo Acquah, da Verona — siti, IT e flussi di lavoro che tengono",
+    "ogDescription": "Sviluppatore web e specialista IT a Verona. Lavori selezionati, un modo vero per scrivermi, e le lingue in cui lavoro: italiano, inglese e francese.",
+    "ogAlt": "Anselmo Acquah — sviluppatore web e specialista IT a Verona"
+  },
+  "nav": {
+    "home": "Anselmo Acquah, home",
+    "about": "Chi sono",
+    "skills": "Competenze",
+    "projects": "Progetti",
+    "contact": "Contatti",
+    "cta": "Parliamone",
+    "aria": "Navigazione principale",
+    "language": "Lingua"
+  },
+  "hero": {
+    "available": "Disponibile per nuove opportunità",
+    "role": "Sviluppatore web e specialista IT",
+    "copy": "Costruisco esperienze digitali affidabili e flussi di lavoro più intelligenti, dove lo sviluppo web attento incontra l’IT pratico.",
+    "viewWork": "Vedi i lavori",
+    "getInTouch": "Scrivimi",
+    "basedIn": "Con base a",
+    "city": "Verona, Italia"
+  },
+  "about": {
+    "number": "01 / Chi sono",
+    "titleLine1": "Tecnologia che funziona",
+    "titleLine2": "per le persone.",
+    "lead": "Sono uno sviluppatore web e specialista IT: costruisco soluzioni digitali chiare, affidabili e semplici da usare.",
+    "body": "La mia esperienza copre lo {highlight}, l’operatività IT sul campo e l’automazione dei flussi di lavoro. Mi piace muovermi tra codice e problemi concreti: lanciare un sito, migliorare un processo, o collegare gli strumenti che tengono un team produttivo.",
+    "highlight": "sviluppo WordPress",
+    "detail": "Sviluppo, operations e automazione — collegati."
+  },
+  "skills": {
+    "number": "02 / Competenze",
+    "titleLine1": "Strumenti che uso per",
+    "titleLine2": "far accadere le cose."
+  },
+  "projects": {
+    "number": "03 / Progetti",
+    "titleLine1": "Lavori selezionati e",
+    "titleLine2": "costruzioni in corso.",
+    "viewProject": "Vedi progetto",
+    "live": "Live",
+    "source": "Sorgente",
+    "openLive": "Apri live",
+    "sourceCode": "Codice sorgente",
+    "close": "Chiudi",
+    "demoOnRequest": "Demo live disponibile su richiesta — codice sorgente su GitHub.",
+    "previewAria": "Apri l’anteprima di {title}",
+    "techAria": "Tecnologie di {title}",
+    "items": {
+      "wine2digital": {
+        "subtitle": "Piattaforma di project management",
+        "description": "Applicazione web full-stack con bacheche Kanban, tracciamento delle attività e flussi di collaborazione. Pensata per team del vino che gestiscono pipeline editoriali e di produzione complesse."
+      },
+      "iwp": {
+        "subtitle": "Mappa interattiva di podcast",
+        "description": "Directory interattiva di podcast italiani sul vino, costruita con Leaflet. Clustering dei marker, filtri per parole chiave ed esplorazione per luogo, tra regioni e temi."
+      },
+      "examChecker": {
+        "subtitle": "Assistente di intelligence sul vino",
+        "description": "Flusso di ricerca interno alimentato da Claude AI. Valuta le fonti, scopre contenuti e prepara il lavoro editoriale: dai segnali sparsi del settore vino a briefing strutturati."
+      }
+    },
+    "previews": {
+      "todo": "Da fare",
+      "inProgress": "In corso",
+      "done": "Fatto",
+      "searchPodcasts": "Cerca podcast...",
+      "chatUser": "Trova coperture recenti sulle tendenze del vino naturale in Europa.",
+      "chatAiBefore": "Ho trovato ",
+      "chatAiStrong": "12 fonti pertinenti",
+      "chatAiAfter": " in 4 pubblicazioni. Miglior risultato: l’analisi Q3 di Wine Spectator sulla viticoltura biodinamica in Borgogna e Piemonte…"
+    }
+  },
+  "contact": {
+    "number": "04 / Contatti",
+    "titleLine1": "Hai un progetto in mente?",
+    "titleLine2": "Costruiamolo.",
+    "intro": "Sono sempre aperto a lavori interessanti, collaborazioni e conversazioni sulla tecnologia.",
+    "heyName": "Ciao, mi chiamo",
+    "from": "e vengo da",
+    "discuss": "vorrei discutere di",
+    "reach": "Puoi contattarmi a",
+    "namePlaceholder": "il tuo nome",
+    "locationPlaceholder": "la tua città",
+    "emailPlaceholder": "tu@azienda.com",
+    "nameAria": "Il tuo nome",
+    "locationAria": "La tua città",
+    "emailAria": "La tua email",
+    "topicAria": "Argomento",
+    "honeypotAria": "Lascia vuoto questo campo",
+    "topics": {
+      "collaboration": "Collaborazione",
+      "potential": "Progetto potenziale",
+      "freelance": "Lavoro freelance",
+      "hi": "Solo un saluto"
+    },
+    "send": "Invia presentazione",
+    "sending": "Invio…",
+    "success": "Grazie — ho ricevuto il messaggio e ti risponderò.",
+    "fallback": "Apro la tua app di posta…",
+    "error": "Qualcosa non ha funzionato. Puoi comunque scrivermi direttamente.",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefono",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2026 Anselmo Acquah",
+    "note": "Progettato e costruito con cura a Verona.",
+    "backToTop": "Torna su ↑"
+  }
+}
