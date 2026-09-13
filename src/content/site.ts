@@ -2,6 +2,7 @@ export class SiteIdentity {
   static readonly displayName = "Anselmo Acquah";
   static readonly publicPath = "/portfolio";
   static readonly portraitSrc = "/portrait.png";
+  static readonly portraitWebp = "/portrait.webp";
   static readonly portraitAlt = "Anselmo Acquah — Web Developer";
   static readonly origin = "https://anselmoacquah.it";
 }
