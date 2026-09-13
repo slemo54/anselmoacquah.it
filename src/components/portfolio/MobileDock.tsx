@@ -1,50 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Icons } from "@/components/icons";
+import { SiteNavModel } from "@/components/portfolio/SiteNav";
+import { useLocale } from "@/components/portfolio/LocaleProvider";
+import { HeroNavCopy } from "@/content/hero-nav-copy";
 
-const sections = [
-  { id: "home", label: "Home", icon: Icons.home },
-  { id: "about", label: "About", icon: Icons.compass },
-  { id: "projects", label: "Projects", icon: Icons.grid },
-  { id: "contact", label: "Contact", icon: Icons.chat },
-] as const;
-
-export function MobileDock() {
-  const [active, setActive] = useState("home");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-28% 0px -58% 0px", threshold: 0 },
-    );
-
-    sections.forEach((section) => {
-      const node = document.getElementById(section.id);
-      if (node) observer.observe(node);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+export function MobileDock({ active = "home" }: { active?: string }) {
+  const { locale } = useLocale();
+  const copy = HeroNavCopy.of(locale);
 
   return (
-    <nav className="mobile-dock" aria-label="Mobile navigation">
-      {sections.map((section) => {
-        const isActive = active === section.id;
+    <nav className="mobile-dock" aria-label={copy.navDock}>
+      {SiteNavModel.dock.map((item) => {
+        const isActive = active === item.id;
         return (
           <a
-            key={section.id}
-            className={`mobile-dock-link${isActive ? " active" : ""}`}
-            href={`#${section.id}`}
-            data-section={section.id}
-            aria-label={section.label}
+            key={item.id}
+            href={item.href}
+            className={isActive ? "mobile-dock-link is-active" : "mobile-dock-link"}
+            aria-label={copy[item.labelKey]}
             aria-current={isActive ? "page" : undefined}
+            data-section={item.id}
           >
-            {section.icon()}
+            {SiteNavModel.dockIcon(item.id)}
           </a>
         );
       })}

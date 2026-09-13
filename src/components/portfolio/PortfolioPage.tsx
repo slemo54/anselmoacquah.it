@@ -4,10 +4,9 @@ import { About } from "@/components/portfolio/About";
 import { Contact } from "@/components/portfolio/Contact";
 import { Hero } from "@/components/portfolio/Hero";
 import { LocaleProvider, useLocale } from "@/components/portfolio/LocaleProvider";
-import { MobileDock } from "@/components/portfolio/MobileDock";
 import { Projects } from "@/components/portfolio/Projects";
 import { SiteFooter } from "@/components/portfolio/SiteFooter";
-import { SiteHeader } from "@/components/portfolio/SiteHeader";
+import { SiteNav } from "@/components/portfolio/SiteNav";
 import { Skills } from "@/components/portfolio/Skills";
 
 function PortfolioShell() {
@@ -15,7 +14,7 @@ function PortfolioShell() {
 
   return (
     <div className={fading ? "language-fade" : undefined}>
-      <SiteHeader />
+      <SiteNav />
       <main>
         <Hero />
         <About />
@@ -24,7 +23,6 @@ function PortfolioShell() {
         <Contact />
       </main>
       <SiteFooter />
-      <MobileDock />
     </div>
   );
 }
