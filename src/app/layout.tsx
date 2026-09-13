@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SiteIdentity } from "@/content/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anselmoacquah.it"),
+  metadataBase: new URL(SiteIdentity.origin),
   title: "Anselmo Acquah | Web Developer & IT Specialist",
   description:
     "Web developer and IT specialist in Verona, Italy, building reliable websites, automations, and digital workflows.",
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
     title: "Anselmo Acquah | Web Developer & IT Specialist",
     description:
       "Web development, IT operations, and automation from Verona, Italy.",
-    url: "https://anselmoacquah.it",
+    url: `${SiteIdentity.origin}${SiteIdentity.publicPath}`,
     siteName: "Anselmo Acquah",
     type: "website",
   },
@@ -34,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
         {children}
       </body>
     </html>
