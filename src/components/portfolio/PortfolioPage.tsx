@@ -4,10 +4,9 @@ import { About } from "@/components/portfolio/About";
 import { Contact } from "@/components/portfolio/Contact";
 import { Hero } from "@/components/portfolio/Hero";
 import { LocaleProvider, useLocale } from "@/components/portfolio/LocaleProvider";
-import { Projects } from "@/components/portfolio/Projects";
 import { SiteFooter } from "@/components/portfolio/SiteFooter";
 import { SiteNav } from "@/components/portfolio/SiteNav";
-import { Skills } from "@/components/portfolio/Skills";
+import { CaseStudies } from "@/components/work/case-studies";
 
 function PortfolioShell() {
   const { fading } = useLocale();
@@ -18,8 +17,7 @@ function PortfolioShell() {
       <main>
         <Hero />
         <About />
-        <Skills />
-        <Projects />
+        <CaseStudies />
         <Contact />
       </main>
       <SiteFooter />
