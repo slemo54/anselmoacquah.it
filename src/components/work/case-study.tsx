@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, GithubIcon } from "@/components/icons";
+import { Icons } from "@/components/icons";
 import { WorkCatalog, type CaseStudy } from "./data";
 
 type CaseStudyCardProps = {
@@ -37,17 +37,14 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
 
       <div className="case-study-footer">
         <div className="case-study-links">
-          <a
-            className="case-study-link"
-            {...WorkCatalog.hrefProps(study.live)}
-          >
-            Live <ArrowUpRightIcon />
+          <a className="case-study-link" {...WorkCatalog.hrefProps(study.live)}>
+            Live {Icons.arrowUpRight({ width: 16, height: 16 })}
           </a>
           <a
             className="case-study-link"
             {...WorkCatalog.hrefProps(study.source)}
           >
-            <GithubIcon /> Source
+            {Icons.github({ width: 16, height: 16 })} Source
           </a>
         </div>
         <ul aria-label={`${study.title} stack`}>
