@@ -11,7 +11,8 @@ import { MotionGuard } from "@/lib/motion-guard";
 
 export class HeroStage {
   static readonly portrait = {
-    src: SiteIdentity.portraitSrc,
+    src: SiteIdentity.portraitWebp,
+    fallback: SiteIdentity.portraitSrc,
     width: 1274,
     height: 1235,
   } as const;

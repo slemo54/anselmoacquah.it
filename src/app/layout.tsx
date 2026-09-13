@@ -9,21 +9,21 @@ import "./globals.css";
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   axes: ["SOFT", "WONK", "opsz"],
 });
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
 });
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
-  display: "swap",
+  display: "optional",
 });
 
 export const viewport: Viewport = {
@@ -44,6 +44,15 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/portrait.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+      </head>
       <body>
         <JsonLd />
         <MotionProvider>{children}</MotionProvider>

@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "validate": "node scripts/validate-source-of-truth.mjs && node scripts/validate-i18n.mjs"
+    "validate": "node scripts/validate-source-of-truth.mjs && node scripts/validate-i18n.mjs && node scripts/validate-portfolio-mobile.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

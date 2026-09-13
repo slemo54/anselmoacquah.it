@@ -31,6 +31,8 @@
 html {
   scroll-behavior: smooth;
   scrollbar-color: var(--purple) var(--bg);
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 body {
@@ -42,7 +44,8 @@ body {
     var(--bg);
   font-family: var(--font-inter), Inter, sans-serif;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 body::after {
@@ -1568,6 +1571,15 @@ footer {
   }
 }
 
+#home,
+#about,
+#projects,
+.hero-stage,
+.work-section,
+.case-study-list {
+  overflow-x: clip;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1576,9 +1588,12 @@ footer {
   *,
   *::before,
   *::after {
+    animation: none !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    transition: none !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
