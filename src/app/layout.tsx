@@ -1,18 +1,33 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Fraunces, IBM_Plex_Mono, Manrope } from "next/font/google";
+import { ArtDirection } from "@/theme/tokens";
 import "./globals.css";
 import { SiteIdentity } from "@/content/site";
 
-const inter = Inter({
-  variable: "--font-inter",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  display: "swap",
 });
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+export const viewport: Viewport = {
+  themeColor: ArtDirection.themeColor(),
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SiteIdentity.origin),
@@ -35,10 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
