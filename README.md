@@ -17,6 +17,7 @@ The public UI is the Next.js 15 App Router route at `/portfolio`.
 - Next.js 15 with the App Router
 - React 19 and TypeScript
 - Tailwind CSS v4
+- GSAP + Lenis motion system (`src/motion`)
 - Hand-authored SVG icons
 
 ## Local development
@@ -42,3 +43,28 @@ npm run build
 `npm run validate` asserts that leftover HTML cannot become the served UI, that
 contact uses `anselmo@anselmoacquah.it`, and that project cards only link to
 real live URLs.
+
+## Motion system
+
+`MotionProvider` wraps the App Router tree and owns Lenis + the GSAP ticker.
+Section UI should consume the shared language instead of fading whole blocks:
+
+```tsx
+import { useMagnetic, useStagger } from "@/motion";
+
+const magnetic = useMagnetic({ strength: 0.2 });
+const stagger = useStagger({ kind: "words" });
+
+return (
+  <section>
+    <h2 ref={stagger}>Selected work</h2>
+    <a ref={magnetic} href="#contact">Let’s talk</a>
+  </section>
+);
+```
+
+Or mark existing markup: `data-magnetic`, `data-spring`, `data-stagger`,
+`data-scroll-linked`, `data-morph`, `data-shared-element`.
+
+`prefers-reduced-motion: reduce` skips Lenis, tweens, and the cursor. The
+custom cursor never mounts on `(pointer: coarse)` or touch pointers.
