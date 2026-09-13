@@ -32,6 +32,16 @@ npm run dev
 Then open [http://localhost:3000/portfolio](http://localhost:3000/portfolio).
 The root URL redirects there.
 
+## Contact, languages, SEO
+
+The contact form posts to `POST /api/contact`. If `RESEND_API_KEY` or
+`CONTACT_WEBHOOK_URL` is set, the note is delivered to
+`anselmo@anselmoacquah.it`. Otherwise the UI opens a mailto draft only.
+
+Copy lives in `src/i18n/` for Italian, English, and French. Canonical URL,
+Open Graph, and JSON-LD point at
+[https://www.anselmoacquah.it/portfolio](https://www.anselmoacquah.it/portfolio).
+
 ## Quality checks
 
 ```bash

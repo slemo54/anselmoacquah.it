@@ -1,0 +1,118 @@
+{
+  "seo": {
+    "title": "Anselmo Acquah — À Vérone, je construis des sites et des systèmes qui restent utiles",
+    "description": "Je suis Anselmo Acquah, développeur web et spécialiste IT à Vérone. Je conçois et livre des sites, des automatisations et des outils d’IA utiles — écrivez-moi quand vous avez quelque chose à bâtir.",
+    "ogTitle": "Anselmo Acquah, de Vérone — des sites, de l’IT et des flux de travail qui tiennent",
+    "ogDescription": "Développeur web et spécialiste IT à Vérone. Travaux choisis, un vrai moyen de m’écrire, et les langues dans lesquelles je travaille : italien, anglais et français.",
+    "ogAlt": "Anselmo Acquah — développeur web et spécialiste IT à Vérone"
+  },
+  "nav": {
+    "home": "Anselmo Acquah, accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact",
+    "cta": "Parlons-en",
+    "aria": "Navigation principale",
+    "language": "Langue"
+  },
+  "hero": {
+    "available": "Disponible pour de nouvelles opportunités",
+    "role": "Développeur web et spécialiste IT",
+    "copy": "Je construis des expériences numériques fiables et des flux de travail plus intelligents, là où le développement web soigné rencontre l’IT pratique.",
+    "viewWork": "Voir mon travail",
+    "getInTouch": "Me contacter",
+    "basedIn": "Basé à",
+    "city": "Vérone, Italie"
+  },
+  "about": {
+    "number": "01 / À propos",
+    "titleLine1": "Une technologie qui sert",
+    "titleLine2": "les personnes.",
+    "lead": "Je suis développeur web et spécialiste IT : je construis des solutions numériques claires, fiables et simples à utiliser.",
+    "body": "Mon expérience couvre le {highlight}, l’IT de terrain et l’automatisation des flux de travail. J’aime passer du code aux problèmes concrets : lancer un site, améliorer un processus, ou relier les outils qui gardent une équipe productive.",
+    "highlight": "développement WordPress",
+    "detail": "Développement, opérations et automatisation — reliés."
+  },
+  "skills": {
+    "number": "02 / Compétences",
+    "titleLine1": "Les outils que j’utilise pour",
+    "titleLine2": "faire avancer les choses."
+  },
+  "projects": {
+    "number": "03 / Projets",
+    "titleLine1": "Travaux choisis et",
+    "titleLine2": "chantiers en cours.",
+    "viewProject": "Voir le projet",
+    "live": "Live",
+    "source": "Source",
+    "openLive": "Ouvrir le live",
+    "sourceCode": "Code source",
+    "close": "Fermer",
+    "demoOnRequest": "Démo en direct disponible sur demande — code source sur GitHub.",
+    "previewAria": "Ouvrir l’aperçu de {title}",
+    "techAria": "Technologies de {title}",
+    "items": {
+      "wine2digital": {
+        "subtitle": "Plateforme de gestion de projet",
+        "description": "Application web full-stack avec tableaux Kanban, suivi des tâches et flux de collaboration. Conçue pour des équipes du vin qui gèrent des pipelines éditoriaux et de production complexes."
+      },
+      "iwp": {
+        "subtitle": "Carte interactive de podcasts",
+        "description": "Annuaire interactif de podcasts italiens sur le vin, construit avec Leaflet. Regroupement des marqueurs, filtres par mots-clés et exploration par lieu, entre régions et sujets."
+      },
+      "examChecker": {
+        "subtitle": "Assistant d’intelligence vinicole",
+        "description": "Flux de recherche interne alimenté par Claude AI. Il évalue les sources, découvre du contenu et prépare le travail éditorial : des signaux épars du secteur du vin vers des briefings structurés."
+      }
+    },
+    "previews": {
+      "todo": "À faire",
+      "inProgress": "En cours",
+      "done": "Terminé",
+      "searchPodcasts": "Rechercher des podcasts...",
+      "chatUser": "Trouver des couvertures récentes sur les tendances du vin naturel en Europe.",
+      "chatAiBefore": "J’ai trouvé ",
+      "chatAiStrong": "12 sources pertinentes",
+      "chatAiAfter": " dans 4 publications. Meilleure correspondance : l’analyse T3 de Wine Spectator sur la viticulture biodynamique en Bourgogne et au Piémont…"
+    }
+  },
+  "contact": {
+    "number": "04 / Contact",
+    "titleLine1": "Vous avez un projet en tête ?",
+    "titleLine2": "Construisons-le.",
+    "intro": "Je reste ouvert aux travaux intéressants, aux collaborations et aux conversations sur la technologie.",
+    "heyName": "Salut, je m’appelle",
+    "from": "et je viens de",
+    "discuss": "je voudrais discuter de",
+    "reach": "Vous pouvez me joindre à",
+    "namePlaceholder": "votre nom",
+    "locationPlaceholder": "votre ville",
+    "emailPlaceholder": "vous@entreprise.com",
+    "nameAria": "Votre nom",
+    "locationAria": "Votre ville",
+    "emailAria": "Votre e-mail",
+    "topicAria": "Sujet",
+    "honeypotAria": "Laissez ce champ vide",
+    "topics": {
+      "collaboration": "Collaboration",
+      "potential": "Projet potentiel",
+      "freelance": "Travail freelance",
+      "hi": "Juste un bonjour"
+    },
+    "send": "Envoyer la présentation",
+    "sending": "Envoi…",
+    "success": "Merci — j’ai bien reçu votre note et je vous répondrai.",
+    "fallback": "Ouverture de votre application e-mail…",
+    "error": "Un problème est survenu. Vous pouvez quand même m’écrire directement.",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Téléphone",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2026 Anselmo Acquah",
+    "note": "Conçu et réalisé avec soin à Vérone.",
+    "backToTop": "Retour en haut ↑"
+  }
+}

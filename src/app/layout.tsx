@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, IBM_Plex_Mono, Manrope } from "next/font/google";
+import { JsonLd } from "@/components/json-ld";
 import { ArtDirection } from "@/theme/tokens";
 import { MotionProvider } from "@/motion";
+import { Seo } from "@/lib/seo";
 import "./globals.css";
-import { SiteIdentity } from "@/content/site";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -30,20 +31,7 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SiteIdentity.origin),
-  title: "Anselmo Acquah | Web Developer & IT Specialist",
-  description:
-    "Web developer and IT specialist in Verona, Italy, building reliable websites, automations, and digital workflows.",
-  openGraph: {
-    title: "Anselmo Acquah | Web Developer & IT Specialist",
-    description:
-      "Web development, IT operations, and automation from Verona, Italy.",
-    url: `${SiteIdentity.origin}${SiteIdentity.publicPath}`,
-    siteName: "Anselmo Acquah",
-    type: "website",
-  },
-};
+export const metadata: Metadata = Seo.metadata();
 
 export default function RootLayout({
   children,
@@ -54,8 +42,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
     >
       <body>
+        <JsonLd />
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

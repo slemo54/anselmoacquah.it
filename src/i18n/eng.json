@@ -1,0 +1,118 @@
+{
+  "seo": {
+    "title": "Anselmo Acquah — I build websites and systems that stay useful",
+    "description": "I’m Anselmo Acquah, a web developer and IT specialist in Verona. I design and ship websites, automations, and practical AI tools — write to me when you have something to build.",
+    "ogTitle": "Anselmo Acquah, from Verona — websites, IT, and workflows that hold up",
+    "ogDescription": "A Verona-based web developer and IT specialist. Selected work, a real way to get in touch, and the languages I actually work in: Italian, English, and French.",
+    "ogAlt": "Anselmo Acquah — web developer and IT specialist in Verona"
+  },
+  "nav": {
+    "home": "Anselmo Acquah, home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "cta": "Let's talk",
+    "aria": "Main navigation",
+    "language": "Language"
+  },
+  "hero": {
+    "available": "Available for new opportunities",
+    "role": "Web Developer & IT Specialist",
+    "copy": "I build reliable digital experiences and smarter workflows—where thoughtful web development meets practical IT.",
+    "viewWork": "View my work",
+    "getInTouch": "Get in touch",
+    "basedIn": "Based in",
+    "city": "Verona, Italy"
+  },
+  "about": {
+    "number": "01 / About",
+    "titleLine1": "Technology that works",
+    "titleLine2": "for people.",
+    "lead": "I'm a web developer and IT specialist focused on building digital solutions that are clear, dependable, and easy to use.",
+    "body": "My experience spans {highlight}, hands-on IT operations, and workflow automation. I enjoy moving between code and real-world problem solving—whether that means launching a website, improving a process, or connecting the tools that keep a team productive.",
+    "highlight": "WordPress development",
+    "detail": "Development, operations, and automation—connected."
+  },
+  "skills": {
+    "number": "02 / Skills",
+    "titleLine1": "Tools I use to",
+    "titleLine2": "make things happen."
+  },
+  "projects": {
+    "number": "03 / Projects",
+    "titleLine1": "Selected work &",
+    "titleLine2": "ongoing builds.",
+    "viewProject": "View project",
+    "live": "Live",
+    "source": "Source",
+    "openLive": "Open live",
+    "sourceCode": "Source code",
+    "close": "Close",
+    "demoOnRequest": "Live demo available on request — source code on GitHub.",
+    "previewAria": "Open {title} preview",
+    "techAria": "{title} technologies",
+    "items": {
+      "wine2digital": {
+        "subtitle": "Project Management Platform",
+        "description": "Full-stack web application with Kanban boards, task tracking, and collaboration workflows. Built for wine-industry teams managing complex editorial and production pipelines."
+      },
+      "iwp": {
+        "subtitle": "Interactive Podcast Map",
+        "description": "Interactive directory of Italian wine podcasts built with Leaflet. Features marker clustering, keyword filters, and location-based exploration across regions and topics."
+      },
+      "examChecker": {
+        "subtitle": "Wine Intelligence Assistant",
+        "description": "Internal research workflow powered by Claude AI. Supports source evaluation, content discovery, and editorial preparation — turning scattered wine-industry signals into structured briefings."
+      }
+    },
+    "previews": {
+      "todo": "To Do",
+      "inProgress": "In Progress",
+      "done": "Done",
+      "searchPodcasts": "Search podcasts...",
+      "chatUser": "Find recent coverage on natural wine trends in Europe.",
+      "chatAiBefore": "I found ",
+      "chatAiStrong": "12 relevant sources",
+      "chatAiAfter": " across 4 publications. Top match: Wine Spectator's Q3 analysis on biodynamic viticulture in Burgundy and Piedmont…"
+    }
+  },
+  "contact": {
+    "number": "04 / Contact",
+    "titleLine1": "Have a project in mind?",
+    "titleLine2": "Let's build it.",
+    "intro": "I'm always open to interesting work, collaborations, and conversations about technology.",
+    "heyName": "Hey, my name is",
+    "from": "and I am from",
+    "discuss": "I would like to discuss",
+    "reach": "You can reach me at",
+    "namePlaceholder": "your name",
+    "locationPlaceholder": "your location",
+    "emailPlaceholder": "you@company.com",
+    "nameAria": "Your name",
+    "locationAria": "Your location",
+    "emailAria": "Your email",
+    "topicAria": "Topic",
+    "honeypotAria": "Leave this field empty",
+    "topics": {
+      "collaboration": "Collaboration",
+      "potential": "Potential project",
+      "freelance": "Freelance work",
+      "hi": "Just saying hi"
+    },
+    "send": "Send introduction",
+    "sending": "Sending…",
+    "success": "Thanks — I received your note and will write back.",
+    "fallback": "Opening your email app…",
+    "error": "Something went wrong. You can still write to me directly.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2026 Anselmo Acquah",
+    "note": "Designed & built with care in Verona.",
+    "backToTop": "Back to top ↑"
+  }
+}
