@@ -12,7 +12,7 @@ import { MotionGuard } from "@/lib/motion-guard";
 type NavItem = {
   id: string;
   href: string;
-  labelKey: "navHome" | "navAbout" | "navSkills" | "navProjects" | "navContact";
+  labelKey: "navHome" | "navAbout" | "navProjects" | "navContact";
 };
 
 export class Magnetic {
@@ -49,15 +49,14 @@ export class SiteNavModel {
 
   static readonly links: readonly NavItem[] = [
     { id: "about", href: "#about", labelKey: "navAbout" },
-    { id: "skills", href: "#skills", labelKey: "navSkills" },
-    { id: "projects", href: "#projects", labelKey: "navProjects" },
+    { id: "work", href: "#work", labelKey: "navProjects" },
     { id: "contact", href: "#contact", labelKey: "navContact" },
   ];
 
   static readonly dock: readonly NavItem[] = [
     { id: "home", href: "#home", labelKey: "navHome" },
     { id: "about", href: "#about", labelKey: "navAbout" },
-    { id: "projects", href: "#projects", labelKey: "navProjects" },
+    { id: "work", href: "#work", labelKey: "navProjects" },
     { id: "contact", href: "#contact", labelKey: "navContact" },
   ];
 
@@ -67,7 +66,7 @@ export class SiteNavModel {
         return Icons.home();
       case "about":
         return Icons.person();
-      case "projects":
+      case "work":
         return Icons.grid();
       case "contact":
         return Icons.chat();
@@ -151,7 +150,7 @@ export function SiteNav() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["home", "about", "skills", "projects", "contact"];
+    const sectionIds = ["home", "about", "work", "contact"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter((node): node is HTMLElement => Boolean(node));

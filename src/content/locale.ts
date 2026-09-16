@@ -16,13 +16,6 @@ export type Copy = {
   whatIDo: string;
   aboutTitle: TitleCopy;
   aboutCopy: string;
-  wpExpert: string;
-  fullStack: string;
-  automation: string;
-  aiIntegration: string;
-  toolkit: string;
-  skillsTitle: TitleCopy;
-  skillsIntro: string;
   selectedWork: string;
   projectsTitle: TitleCopy;
   projectsNote: string;
@@ -60,15 +53,7 @@ const catalog: Record<Locale, Copy> = {
     whatIDo: "What I do",
     aboutTitle: { lead: "Ideas into ", accent: "impact." },
     aboutCopy:
-      "I’m Anselmo Acquah, a Web Developer & IT Specialist combining full-stack engineering with practical automation. From WordPress platforms to AI-enhanced workflows, I focus on thoughtful systems that perform.",
-    wpExpert: "WordPress Expert",
-    fullStack: "Full-Stack Dev",
-    automation: "Automation",
-    aiIntegration: "AI Integration",
-    toolkit: "Technical toolkit",
-    skillsTitle: { lead: "Built with ", accent: "range." },
-    skillsIntro:
-      "A practical, evolving stack for taking products from idea to production—without losing sight of clarity, performance, or the people using them.",
+      "I’m Anselmo Acquah, a web developer and IT specialist in Verona. I design and ship websites, automations, and practical tools—clear systems that hold up once they’re in use. Selected work below is the proof.",
     selectedWork: "Selected work",
     projectsTitle: { lead: "Projects with ", accent: "purpose." },
     projectsNote: "Open a live build or the public source. No placeholder URLs.",
@@ -104,15 +89,7 @@ const catalog: Record<Locale, Copy> = {
     whatIDo: "Cosa faccio",
     aboutTitle: { lead: "Dalle idee all’", accent: "impatto." },
     aboutCopy:
-      "Sono Anselmo Acquah, sviluppatore web e specialista IT che combina ingegneria full-stack con automazione pratica. Dalle piattaforme WordPress ai flussi di lavoro potenziati dall'AI, mi concentro su sistemi pensati che funzionano.",
-    wpExpert: "Esperto WordPress",
-    fullStack: "Sviluppatore Full-Stack",
-    automation: "Automazione",
-    aiIntegration: "Integrazione AI",
-    toolkit: "Competenze tecniche",
-    skillsTitle: { lead: "Costruito con ", accent: "versatilità." },
-    skillsIntro:
-      "Uno stack pratico e in evoluzione per portare i prodotti dall'idea alla produzione—senza perdere di vista chiarezza, prestazioni o le persone che li usano.",
+      "Sono Anselmo Acquah, sviluppatore web e specialista IT a Verona. Progetto e pubblico siti, automazioni e strumenti pratici—sistemi chiari che reggono una volta in uso. I lavori selezionati qui sotto sono la prova.",
     selectedWork: "Progetti selezionati",
     projectsTitle: { lead: "Progetti con uno ", accent: "scopo." },
     projectsNote:
@@ -149,15 +126,7 @@ const catalog: Record<Locale, Copy> = {
     whatIDo: "Ce que je fais",
     aboutTitle: { lead: "Des idées à l’", accent: "impact." },
     aboutCopy:
-      "Je suis Anselmo Acquah, développeur web et spécialiste IT alliant ingénierie full-stack et automatisation pratique. Des plateformes WordPress aux flux de travail augmentés par l'IA, je me concentre sur des systèmes réfléchis et performants.",
-    wpExpert: "Expert WordPress",
-    fullStack: "Développeur Full-Stack",
-    automation: "Automatisation",
-    aiIntegration: "Intégration IA",
-    toolkit: "Compétences techniques",
-    skillsTitle: { lead: "Construit avec ", accent: "polyvalence." },
-    skillsIntro:
-      "Une stack pratique et évolutive pour passer de l’idée à la production—sans perdre de vue la clarté, la performance, ni les personnes qui l’utilisent.",
+      "Je suis Anselmo Acquah, développeur web et spécialiste IT à Vérone. Je conçois et livre des sites, des automatisations et des outils pratiques—des systèmes clairs qui tiennent une fois en usage. Les travaux choisis ci-dessous en sont la preuve.",
     selectedWork: "Projets sélectionnés",
     projectsTitle: { lead: "Des projets avec un ", accent: "but." },
     projectsNote:

@@ -69,7 +69,7 @@ for (const dir of scanDirs) {
 
 const leaks = [];
 for (const file of scanned) {
-  if (file.endsWith("validate-i18n.mjs")) continue;
+  if (/validate-[^/]+\.mjs$/.test(file)) continue;
   const source = await readFile(file, "utf8");
   if (source.toLowerCase().includes(forbidden)) leaks.push(file);
 }

@@ -9,12 +9,12 @@
   "nav": {
     "home": "Anselmo Acquah, home",
     "about": "Chi sono",
-    "skills": "Competenze",
     "projects": "Progetti",
     "contact": "Contatti",
     "cta": "Parliamone",
     "aria": "Navigazione principale",
-    "language": "Lingua"
+    "language": "Lingua",
+    "work": "Lavori"
   },
   "hero": {
     "available": "Disponibile per nuove opportunità",
@@ -34,13 +34,8 @@
     "highlight": "sviluppo WordPress",
     "detail": "Sviluppo, operations e automazione — collegati."
   },
-  "skills": {
-    "number": "02 / Competenze",
-    "titleLine1": "Strumenti che uso per",
-    "titleLine2": "far accadere le cose."
-  },
   "projects": {
-    "number": "03 / Progetti",
+    "number": "03 / Archivio lavori",
     "titleLine1": "Lavori selezionati e",
     "titleLine2": "costruzioni in corso.",
     "viewProject": "Vedi progetto",
@@ -114,5 +109,13 @@
     "copyright": "© 2026 Anselmo Acquah",
     "note": "Progettato e costruito con cura a Verona.",
     "backToTop": "Torna su ↑"
+  },
+  "work": {
+    "number": "02 / Lavori",
+    "titleLine1": "Lavori selezionati,",
+    "titleLine2": "pubblicati e online.",
+    "problem": "Problema",
+    "system": "Sistema",
+    "result": "Risultato"
   }
 }

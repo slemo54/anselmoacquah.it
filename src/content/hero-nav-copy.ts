@@ -4,7 +4,6 @@ export type HeroNavCopyShape = {
   skip: string;
   navHome: string;
   navAbout: string;
-  navSkills: string;
   navProjects: string;
   navContact: string;
   navDock: string;
@@ -26,7 +25,6 @@ export class HeroNavCopy {
       skip: "Skip to content",
       navHome: "Home",
       navAbout: "About",
-      navSkills: "Skills",
       navProjects: "Work",
       navContact: "Contact",
       navDock: "Mobile navigation",
@@ -46,7 +44,6 @@ export class HeroNavCopy {
       skip: "Salta al contenuto",
       navHome: "Home",
       navAbout: "Chi sono",
-      navSkills: "Competenze",
       navProjects: "Lavori",
       navContact: "Contatti",
       navDock: "Navigazione mobile",
@@ -66,7 +63,6 @@ export class HeroNavCopy {
       skip: "Aller au contenu",
       navHome: "Accueil",
       navAbout: "À propos",
-      navSkills: "Compétences",
       navProjects: "Travaux",
       navContact: "Contact",
       navDock: "Navigation mobile",
