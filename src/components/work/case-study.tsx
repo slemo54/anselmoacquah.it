@@ -1,4 +1,8 @@
+"use client";
+
 import { Icons } from "@/components/icons";
+import { useLocale } from "@/components/portfolio/LocaleProvider";
+import { WorkCopy } from "@/content/work-copy";
 import { WorkCatalog, type CaseStudy } from "./data";
 
 type CaseStudyCardProps = {
@@ -21,33 +25,37 @@ function CaseStudyField({
 }
 
 export function CaseStudyCard({ study }: CaseStudyCardProps) {
+  const { locale } = useLocale();
+  const chrome = WorkCopy.section(locale);
+  const copy = WorkCopy.study(locale, study.id);
+
   return (
     <article className="case-study" id={study.id}>
       <header className="case-study-header">
         <span className="case-study-number">{study.number}</span>
         <h3>{study.title}</h3>
-        <p className="case-study-subtitle">{study.subtitle}</p>
+        <p className="case-study-subtitle">{copy.subtitle}</p>
       </header>
 
       <dl className="case-study-body">
-        <CaseStudyField label="Problem">{study.problem}</CaseStudyField>
-        <CaseStudyField label="System">{study.system}</CaseStudyField>
-        <CaseStudyField label="Result">{study.result}</CaseStudyField>
+        <CaseStudyField label={chrome.problem}>{copy.problem}</CaseStudyField>
+        <CaseStudyField label={chrome.system}>{copy.system}</CaseStudyField>
+        <CaseStudyField label={chrome.result}>{copy.result}</CaseStudyField>
       </dl>
 
       <div className="case-study-footer">
         <div className="case-study-links">
           <a className="case-study-link" {...WorkCatalog.hrefProps(study.live)}>
-            Live {Icons.arrowUpRight({ width: 16, height: 16 })}
+            {chrome.live} {Icons.arrowUpRight({ width: 16, height: 16 })}
           </a>
           <a
             className="case-study-link"
             {...WorkCatalog.hrefProps(study.source)}
           >
-            {Icons.github({ width: 16, height: 16 })} Source
+            {Icons.github({ width: 16, height: 16 })} {chrome.source}
           </a>
         </div>
-        <ul aria-label={`${study.title} stack`}>
+        <ul aria-label={WorkCopy.stackAria(locale, study.title)}>
           {study.stack.map((item) => (
             <li key={item}>{item}</li>
           ))}

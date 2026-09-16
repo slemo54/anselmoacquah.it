@@ -91,7 +91,7 @@ export function Hero() {
             <span>{copy.location}</span>
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">
+            <a className="button button-primary" href="#work">
               {copy.viewWork} {Icons.arrowUpRight()}
             </a>
             <a className="button button-secondary" href="#contact">

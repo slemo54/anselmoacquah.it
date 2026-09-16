@@ -43,7 +43,7 @@ const checks = [
     "mobile dock has four section links",
     source.includes('id: "home"') &&
       source.includes('id: "about"') &&
-      source.includes('id: "projects"') &&
+      source.includes('id: "work"') &&
       source.includes('id: "contact"'),
   ],
   ["skip link exists", source.includes('className="skip-link"')],

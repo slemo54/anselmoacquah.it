@@ -9,12 +9,12 @@
   "nav": {
     "home": "Anselmo Acquah, home",
     "about": "About",
-    "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact",
     "cta": "Let's talk",
     "aria": "Main navigation",
-    "language": "Language"
+    "language": "Language",
+    "work": "Work"
   },
   "hero": {
     "available": "Available for new opportunities",
@@ -34,13 +34,8 @@
     "highlight": "WordPress development",
     "detail": "Development, operations, and automation—connected."
   },
-  "skills": {
-    "number": "02 / Skills",
-    "titleLine1": "Tools I use to",
-    "titleLine2": "make things happen."
-  },
   "projects": {
-    "number": "03 / Projects",
+    "number": "03 / Work archive",
     "titleLine1": "Selected work &",
     "titleLine2": "ongoing builds.",
     "viewProject": "View project",
@@ -114,5 +109,13 @@
     "copyright": "© 2026 Anselmo Acquah",
     "note": "Designed & built with care in Verona.",
     "backToTop": "Back to top ↑"
+  },
+  "work": {
+    "number": "02 / Work",
+    "titleLine1": "Selected work,",
+    "titleLine2": "shipped and live.",
+    "problem": "Problem",
+    "system": "System",
+    "result": "Result"
   }
 }
