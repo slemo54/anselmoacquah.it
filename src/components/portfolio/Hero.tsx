@@ -75,7 +75,10 @@ export function Hero() {
           </p>
           <h1 id="hero-heading" className="hero-heading">
             <span className="hero-line-mask">
-              <span className="hero-line">{copy.headlineLine1}</span>
+              <span className="hero-line">
+                {copy.headlineLine1}
+                {"\u00A0"}
+              </span>
             </span>
             <span className="hero-line-mask">
               <span className="hero-line">
